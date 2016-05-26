@@ -16,7 +16,7 @@ namespace CoorseProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reserve());
+            Application.Run(new Schedule());
         }
     }
 }

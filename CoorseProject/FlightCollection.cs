@@ -8,35 +8,98 @@ using System.IO;
 namespace CoorseProject
 {
     /*
-            Класс FlightCollection наследуемый от List<Flight>, предназначен для подключения к файлу Flights.txt, который содержит в себе 
-            все дступные рейсы, и создания коллекции этих рейсов. Метод  GetCollection() ищет в этой коллекции рейсы, маршрут которых совпадает 
-            с параметрами метода.
+            Класс FlightCollection наследуемый от List<Flight> является важнейшим во всей программе. В конструкторе происходит 
+            подключение к текстовому файлу Flights.txt, который содержит в себе все рейсы. Однако конструктор помимо пути к файлу 
+            принимает ещё два параметра: "откуда" и "куда". Благодаря этому в коллекцию попадают только те рейсы, которые удовлетворяют
+            условиям:
+                  1) Рейсы, у которых совпадает поле "DepartureFrom" с параметром конструктора "откуда";
+                  2) Рейсы, у которых совпадает поле "ArrivalIn" с параметром конструктора "куда";
+                  3) Рейсы, у которых выполняются оба вышеуказанные условия;
+            Также возможна "подсадка" пассажира на определённом рейсе. Например есть рейс Москва-Стамбул, который приземляется в Харькове
+            (то есть Харьков входит в массив "StopStation" этого рейса).В таком случае если пассажир введёт Харьков-Стамбул, ему будет показан
+            и этот рейс.
     */
+
     class FlightCollection :List<Flight>
     {
-        public FlightCollection()
+        public FlightCollection(string path,string dep,string arrival)
         {
-            StreamReader flights = new StreamReader("Flights.txt");
+            StreamReader flights = new StreamReader(path);
             while (!flights.EndOfStream)
             {
                 string s = flights.ReadLine();
                 string[] arr = s.Split('|');
-                this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+                if (arr.Length != 7)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    if ((arr[1] == dep && arr[2] == arrival) ||
+                    (arr[6].IndexOf(arrival) != -1 && arr[1] == dep) ||
+                    (arr[6].IndexOf(dep) != -1 && arr[2] == arrival))
+                    {
+                        this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));   
+                    }
+                }
+                
             }
+            flights.Close();
         }
 
-        public List<Flight> GetCollection(string dep, string arr)
+        public FlightCollection(string path)
         {
-            List<Flight> result = new List<Flight>();
-            for (int i = 0; i < this.Count; i++)
+            StreamReader flights = new StreamReader(path);
+            while (!flights.EndOfStream)
             {
-                if (this[i].DepartureFrom == dep && this[i].ArrivalIn == arr)
+                string s = flights.ReadLine();
+                string[] arr = s.Split('|');
+                if (arr.Length != 7)
                 {
-                    result.Add(this[i]);
+                    throw new Exception();
+                }
+                
+               this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+            }
+            flights.Close();
+        }
+
+        public string GetStations(string[] str) // Метод, который будет использован для вывода промежуточных станций 
+        {                                       //(Промежуточные станции - это массив строк)
+            string rez = "";
+            if (str.Length == 0)
+            {
+                return rez;
+            }
+            if (str.Length == 1)
+            {
+                rez = str[0];
+            }
+            else
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    if (i == str.Length - 1)
+                        rez += str[i];
+                    rez += str[i] + ",";
                 }
             }
-
-            return result;
+            return rez;
+        }
+        public void SortingByDays() // Метод сортировки пузырьком рейсов по отправлению. 
+        {                           
+            for (int i = 0; i < this.Count - 1; i++)
+            {
+                for (int j = i + 1; j < this.Count; j++)
+                {
+                    if (this[j].Departure > this[i].Departure)
+                    {
+                        var t = this[i];
+                        this[i] = this[j];
+                        this[j] = t;
+                    }
+                }
+            }
         }
     }
 }

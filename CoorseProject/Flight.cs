@@ -19,7 +19,6 @@ namespace CoorseProject
 
         public DateTime Departure; // Время и день вылета
 
-
         public string[] StopStation; // Места промежуточной посадки
 
         public Flight(int num, string dep, string arrival, string time, string day,int countPlace, params string[] mas)

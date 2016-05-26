@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+
 
 namespace CoorseProject
 {
@@ -47,48 +47,34 @@ namespace CoorseProject
             try
             {
                 Passenger user = new Passenger(Name, Surname, Middlename, Route);
-
-                StreamReader flights = new StreamReader("Flights.txt");
-                bool m = false;
-                int n = 0;
-
-                while (!flights.EndOfStream)
+                FlightCollection arr = new FlightCollection("Flights.txt",DepartureFrom,ArrivalIn);
+                bool check = false; // Булевая переменная, которая становится "true" если был найден соответственный рейс, в который добавлено определённое количество пассажиров
+                int copyNumber = 0; // Переменная, в которую записывается номер рейса, на который совершается регистрация
+                
+                for (int i = 0; i < arr.Count; i++)
                 {
-                    string s = flights.ReadLine();
-                    string[] arr = s.Split('|');
-                   
-                    if (arr.Length > 3)
+                    if (arr[i].Number == Convert.ToInt32(num) && arr[i].DepartureFrom + "-" + arr[i].ArrivalIn == user.Route)
                     {
-                        if (num == arr[0] && arr[1] + "-" + arr[2] == user.Route)
+                        copyNumber = arr[i].Number;
+                        check = true;
+                        while (count != 0)
                         {
-                            m = true;
-                            Flight ob = new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]);
-                            n = ob.Number;
-                            while (count != 0)
-                            {
-                                ob.ListOfPassengers.AddPassenger(user);
-                               
-                                count--;
-                            }
-                            break;
+                            arr[i].ListOfPassengers.AddPassenger(user);
+                            count--;
                         }
-                        
                     }
                 }
-
-                if (m)
+                
+                if (check)
                 {
                     while (copy != 0)
                     {
-                        user.WriteInFile(n);
+                        user.WriteInFile(copyNumber); ;
                         copy--;
                     }
                     MessageBox.Show("Забронировано! Хорошего полёта!");
                     this.Close();
                 }
-
-                flights.Close();
-
             }
             catch (Exception z)
             {
@@ -107,30 +93,16 @@ namespace CoorseProject
         
             try
             {
-                StreamReader flights = new StreamReader("Flights.txt");
-                List<Flight> list = new List<Flight>();
-                bool check = true;
-                while (!flights.EndOfStream)
+                FlightCollection list = new FlightCollection("Flights.txt",dep,arrival);
+                
+                bool check = false;
+                
+                if (list.Count == 0)
                 {
-                    string s = flights.ReadLine();
-                    string[] arr = s.Split('|');
-                    if (arr.Length != 7)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        if ((arr[1] == dep && arr[2] == arrival) ||
-                        (arr[6].IndexOf(arrival) != -1 && arr[1] == dep) ||
-                        (arr[6].IndexOf(dep) != -1 && arr[2] == arrival))
-                        {
-                            list.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
-                            check = false;
-                        }
-                    }
+                    check = true;
                 }
 
-                SortingByDays(list);
+                list.SortingByDays();
 
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
@@ -142,11 +114,11 @@ namespace CoorseProject
                                                  list[i].ArrivalIn,
                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
                                                  list[i].Departure.Date.ToString().Split(' ')[0],
-                                                 GetStations(list[i].StopStation)
+                                                 list.GetStations(list[i].StopStation)
                                                  );
                     }
                 }
-                if (dataGridView1.RowCount == 0 && check) // Проверка на существование рейсов в базе данных
+                if (check) // Проверка на существование рейсов в базе данных
                 {
                     MessageBox.Show("Не найдено соответствующего рейса");
                     return;
@@ -159,42 +131,10 @@ namespace CoorseProject
             }
 
         }
-        private string GetStations(string[] str) // Метод, который будет использован для вывода промежуточных станций 
-        {                                              //(Промежуточные станции - это сроковый массив)
-            string rez = "";
-            if (str.Length == 0)
-            {
-                return rez;
-            }
-            if (str.Length == 1)
-            {
-                rez = str[0];
-            }
-            else
-            {
-                for (int i = 0; i < str.Length; i++)
-                {
-                    if (i == str.Length - 1)
-                        rez += str[i];
-                    rez += str[i] + ",";
-                }
-            }
-            return rez;
-        }
-        private void SortingByDays(List<Flight> arr) // Метод сортировки пузырьком рейсов по дням полётов. 
-        {                                                  //Дни полётов относятся к классу DayOfWeek, благодаря чему легко сравниваются
-            for (int i = 0; i < arr.Count - 1; i++)
-            {
-                for (int j = i + 1; j < arr.Count; j++)
-                {
-                    if (arr[j].Departure > arr[i].Departure)
-                    {
-                        var t = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = t;
-                    }
-                }
-            }
+
+        private void button3Reset_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
