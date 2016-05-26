@@ -30,12 +30,14 @@ namespace CoorseProject
 
             dataGridView1.Rows.Clear();
             DateTime now = DateTime.Now;
+
             if (System.IO.File.Exists("Flights.txt") == false)
             {
                 if (System.IO.Directory.Exists("Passengers"))
                 {
                     System.IO.Directory.Delete("Passengers",true);
                 }
+                
                 System.IO.FileStream file = new System.IO.FileStream("Flights.txt",System.IO.FileMode.Create);
                 file.Close();
             }
@@ -54,6 +56,9 @@ namespace CoorseProject
                                                  list[i].ArrivalIn,
                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
                                                  list[i].Departure.Date.ToString().Split(' ')[0],
+                                                 list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
+                                                  list[i].Arrival.Date.ToString().Split(' ')[0],
+                                                 list[i].TicketPrice,
                                                  Program.GetStations(list[i].StopStation)
                                                  );
                     }

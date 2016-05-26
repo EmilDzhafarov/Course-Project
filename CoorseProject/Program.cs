@@ -26,8 +26,9 @@ namespace CoorseProject
         public static string RemoveSpaces(string str) // Метод, который удаляет лишние пробельные символы
         {
             string[] t = str.Split(' ');
+
             string res = "";
-            for (int i = 0; i < t.Length; i++)
+            for (int i = 0; i < t.Length; i++)   
             {
                 if (t[i] != "")
                 {

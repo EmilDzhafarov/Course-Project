@@ -17,31 +17,29 @@ namespace CoorseProject
     class FlightCollection :List<Flight>
     {
         public FlightCollection(string dep,string arrival)
-        {     
-            using (StreamReader flights = new StreamReader("Flights.txt"))
+        {
+            CreateFlightCollection();
+            List<Flight> rez = new List<Flight>();
+
+            foreach (Flight obj in this)
             {
-                while (!flights.EndOfStream)
+                if ((obj.DepartureFrom == dep && obj.ArrivalIn == arrival) ||
+                        (Array.IndexOf(obj.StopStation,arrival) != -1 && obj.DepartureFrom == dep))
                 {
-                    string s = flights.ReadLine();
-                    string[] arr = s.Split('|');
-                    if (arr.Length != 7)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        if ((arr[1] == dep && arr[2] == arrival) ||
-                        (arr[6].IndexOf(arrival) != -1 && arr[1] == dep))
-                        {
-                            this.Add(new Flight(arr[0], arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
-                        }
-                    }
+                    rez.Add(obj);
                 }
-                flights.Close();
             }
+
+            this.Clear();
+            this.AddRange(rez);
         }
 
-        public FlightCollection() 
+        public FlightCollection()
+        {
+            CreateFlightCollection();
+        }
+
+        private void CreateFlightCollection() 
         {
             using (StreamReader flights = new StreamReader("Flights.txt"))
             {
@@ -49,16 +47,14 @@ namespace CoorseProject
                 {
                     string s = flights.ReadLine();
                     string[] arr = s.Split('|');
-                    if (arr.Length != 7)
+                    if (arr.Length != 10)
                     {
                         throw new Exception();
                     }
-                    if (String.IsNullOrWhiteSpace(arr[1]) || String.IsNullOrWhiteSpace(arr[2]) || String.IsNullOrWhiteSpace(arr[3])
-                        || String.IsNullOrWhiteSpace(arr[4]))
-                    {
-                        throw new ArgumentNullException();
-                    }
-                    this.Add(new Flight(arr[0], arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+
+                    this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],
+                                        arr[4], arr[5], arr[6],
+                                        Convert.ToInt32(arr[7]), Convert.ToInt32(arr[8]), arr[9]));
                 }
                 flights.Close();
             }

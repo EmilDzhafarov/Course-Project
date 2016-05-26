@@ -55,7 +55,7 @@
             this.listBox1info.Location = new System.Drawing.Point(21, 97);
             this.listBox1info.Name = "listBox1info";
             this.listBox1info.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1info.Size = new System.Drawing.Size(463, 137);
+            this.listBox1info.Size = new System.Drawing.Size(463, 197);
             this.listBox1info.TabIndex = 0;
             // 
             // dataGridView1
@@ -81,7 +81,7 @@
             this.name,
             this.surname,
             this.middlename});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 281);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 345);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -96,7 +96,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(463, 164);
+            this.dataGridView1.Size = new System.Drawing.Size(463, 146);
             this.dataGridView1.TabIndex = 1;
             // 
             // name
@@ -125,8 +125,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(134, 19);
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(124, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(243, 24);
             this.label1.TabIndex = 2;
@@ -135,32 +135,32 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(18, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 18);
+            this.label2.Size = new System.Drawing.Size(146, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Информация о рейсе";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label3.Location = new System.Drawing.Point(18, 250);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(18, 314);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 18);
+            this.label3.Size = new System.Drawing.Size(137, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Список пассажиров";
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.Crimson;
-            this.button1.Location = new System.Drawing.Point(407, 451);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(413, 497);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 36);
+            this.button1.Size = new System.Drawing.Size(71, 28);
             this.button1.TabIndex = 5;
             this.button1.Text = "Назад";
             this.button1.UseVisualStyleBackColor = true;
@@ -170,8 +170,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(502, 499);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(499, 537);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

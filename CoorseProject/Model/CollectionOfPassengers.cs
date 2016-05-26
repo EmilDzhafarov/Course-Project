@@ -11,13 +11,13 @@ namespace CoorseProject
          и реализованы несколько методов. Для удобства работы переопределён метод ToString().
     */
 
-    public class Passengers
+    public class CollectionOfPassengers  
     {
         public Passenger[] passengers;
 
         public int Count { get; private set; }
 
-        public Passengers(int k)
+        public CollectionOfPassengers(int k)
         {
             passengers = new Passenger[k];
             Count = 0;

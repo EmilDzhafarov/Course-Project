@@ -46,52 +46,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddFlight.cs">
+    <Compile Include="Forms\AddFlight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddFlight.Designer.cs">
+    <Compile Include="Forms\AddFlight.Designer.cs">
       <DependentUpon>AddFlight.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditFlight.cs">
+    <Compile Include="Forms\EditFlight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFlight.Designer.cs">
+    <Compile Include="Forms\EditFlight.Designer.cs">
       <DependentUpon>EditFlight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flight.cs" />
-    <Compile Include="FlightCollection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Model\Flight.cs" />
+    <Compile Include="Model\FlightCollection.cs" />
+    <Compile Include="Forms\Reserve.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Reserve.Designer.cs">
+      <DependentUpon>Reserve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Info.cs">
+    <Compile Include="Forms\Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Info.Designer.cs">
+    <Compile Include="Forms\Info.Designer.cs">
       <DependentUpon>Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passenger.cs" />
-    <Compile Include="Passengers.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Model\Passenger.cs" />
+    <Compile Include="Model\CollectionOfPassengers.cs" />
+    <Compile Include="Program.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedule.cs">
+    <Compile Include="Forms\Schedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Schedule.Designer.cs">
+    <Compile Include="Forms\Schedule.Designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddFlight.resx">
+    <EmbeddedResource Include="Forms\AddFlight.resx">
       <DependentUpon>AddFlight.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditFlight.resx">
+    <EmbeddedResource Include="Forms\EditFlight.resx">
       <DependentUpon>EditFlight.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Reserve.resx">
+      <DependentUpon>Reserve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Info.resx">
+    <EmbeddedResource Include="Forms\Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -103,9 +105,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Schedule.resx">
+    <EmbeddedResource Include="Forms\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -28,34 +28,33 @@ namespace CoorseProject
             try
             {
                 string Number = textBox1Number.Text;
-                string day = dateTimePicker1.Value.Day.ToString() + "."
-                          + dateTimePicker1.Value.Month.ToString() + "."
-                          + dateTimePicker1.Value.Year.ToString();
-                
-                string time = numericUpDown4Hours.Value + ":" + numericUpDown5Minutes.Value;
-               
+                string depDay = dateTimePicker1DepartureDay.Value.Day.ToString() + "."
+                          + dateTimePicker1DepartureDay.Value.Month.ToString() + "."
+                          + dateTimePicker1DepartureDay.Value.Year.ToString();
+                string arrDay = dateTimePicker2ArrivalDay.Value.Day.ToString() + "."
+                          + dateTimePicker2ArrivalDay.Value.Month.ToString() + "."
+                          + dateTimePicker2ArrivalDay.Value.Year.ToString();
+                string depTime = numericUpDown4DepHours.Value + ":" + numericUpDown5DepMinutes.Value;
+                string arrTime = numericUpDown1ArrHours.Value + ":" + numericUpDown2ArrMinutes.Value;
                 string[] StopStations = textBox1StopStations.Text.Split(',');
                 string DepartureFrom = Program.RemoveSpaces(textBox1DepartureFrom.Text);
                 string ArrivalIn = Program.RemoveSpaces(textBox1ArrivalIn.Text);
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
+                int ticketPrice = Convert.ToInt32(numericUpDown1TicketPrice.Value);
 
                 if (String.IsNullOrWhiteSpace(DepartureFrom) || String.IsNullOrWhiteSpace(ArrivalIn))
                 {
                     MessageBox.Show("Укажите маршрут!", "Оповещение");
                     return;
                 }
-                if (Convert.ToDateTime(time).TimeOfDay < DateTime.Now.TimeOfDay && Convert.ToDateTime(day).Equals(DateTime.Now.Date))
-                {
-                    MessageBox.Show("Время должно быть больше текущего!", "Оповещение");
-                    return;
-                }
+
                 Flight newFlight;
                 FlightCollection file = new FlightCollection();
                 Flight Current = file.FindByNumber(Convert.ToInt32(Number));
 
                 if (Current == null)
                 {
-                    newFlight = new Flight(Number, DepartureFrom, ArrivalIn, time, day, countPlaces, StopStations);
+                    newFlight = new Flight(Number, DepartureFrom, ArrivalIn, depTime, depDay, arrTime,arrDay, ticketPrice, countPlaces, StopStations);
                     file.AddFlightAndWriteInFile(newFlight);
                 }
                 else
@@ -71,7 +70,5 @@ namespace CoorseProject
                 MessageBox.Show("Проверьте правильность введённых данных.", "Оповещение");
             }
         }
-
-       
     }
 }

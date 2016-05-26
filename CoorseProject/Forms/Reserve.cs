@@ -31,12 +31,15 @@ namespace CoorseProject
                 string Name = textBox1Name.Text;
                 string Surname = textBox2Surname.Text;
                 string Middlename = textBox3Middlename.Text;
+
                 if (String.IsNullOrWhiteSpace(Name) == true || String.IsNullOrWhiteSpace(Surname) == true || 
                     String.IsNullOrWhiteSpace(Middlename) == true)
                 {
                     MessageBox.Show("Введите регистрационные данные!", "Оповещение");
                     return;
                 }
+
+
                 if (dataGridView1.RowCount == 0)
                 {
                     MessageBox.Show("Не найдено соответствующего рейса!", "Оповещение");
@@ -99,15 +102,19 @@ namespace CoorseProject
                 {
                     if (list[i].Departure > now)
                     {
-                        dataGridView1.Rows.Add(list[i].Number,
-                                                 list[i].FreePlaces,
-                                                 list[i].DepartureFrom,
-                                                 list[i].ArrivalIn,
-                                                 list[i].Departure.TimeOfDay.ToString("hh':'mm"),
-                                                 list[i].Departure.Date.ToString().Split(' ')[0],
-                                                 Program.GetStations(list[i].StopStation)
-                                                 );
-                    }
+                    dataGridView1.Rows.Add(list[i].Number,
+                                              list[i].FreePlaces,
+                                              list[i].DepartureFrom,
+                                              list[i].ArrivalIn,
+                                              list[i].Departure.TimeOfDay.ToString("hh':'mm"),
+                                              list[i].Departure.Date.ToString().Split(' ')[0],
+                                              list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
+                                              list[i].Arrival.Date.ToString().Split(' ')[0],
+                                              list[i].TicketPrice,
+                                              Program.GetStations(list[i].StopStation)
+                                              );
+                }
+
                 }
                 if (check || dataGridView1.RowCount == 0) // Проверка на существование рейсов в базе данных
                 {

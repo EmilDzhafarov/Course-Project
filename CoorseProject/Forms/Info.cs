@@ -35,17 +35,22 @@ namespace CoorseProject
             rez.Add("Номер: " + Current.Number);
             rez.Add("Откуда отправляется: " + Current.DepartureFrom);
             rez.Add("Куда направляется: " + Current.ArrivalIn);
-            rez.Add("Дата вылета: " + Current.Departure.Date.ToString().Split(' ')[0]);
+            rez.Add("Дата отправления: " + Current.Departure.Date.ToString().Split(' ')[0]);
             rez.Add("Время отправления: " + Current.Departure.TimeOfDay.ToString("hh':'mm"));
+            rez.Add("Дата прибытия: " + Current.Arrival.Date.ToString().Split(' ')[0]);
+            rez.Add("Время прибытия: " + Current.Arrival.TimeOfDay.ToString("hh':'mm"));
             rez.Add("Количество посадочных мест: " + Current.CountPlaces);
             rez.Add("Свободные места: " + Current.FreePlaces);
+            rez.Add("Стоимость билета: " + Current.TicketPrice);
             rez.Add("Пункты промежуточной посадки: " + Program.GetStations(Current.StopStation));
 
             listBox1info.DataSource = rez;
 
             for (int i = 0; i < Current.ListOfPassengers.Count; i++)
             {
-                dataGridView1.Rows.Add(Current.ListOfPassengers[i].Name, Current.ListOfPassengers[i].Surname, Current.ListOfPassengers[i].MiddleName);
+                dataGridView1.Rows.Add(Current.ListOfPassengers[i].Name, 
+                                      Current.ListOfPassengers[i].Surname, 
+                                      Current.ListOfPassengers[i].MiddleName);
             }
         }
 
