@@ -10,7 +10,8 @@ namespace CoorseProject
          Класс Passengers предназначен для хранения списка пассажиров на определённом рейсе. В основание класса положен массив Passenger[]
          и реализованы несколько методов. Для удобства работы переопределён метод ToString().
     */
-    class Passengers
+
+    public class Passengers
     {
         public Passenger[] passengers;
 
@@ -19,6 +20,7 @@ namespace CoorseProject
         public Passengers(int k)
         {
             passengers = new Passenger[k];
+            Count = 0;
         }
 
         public Passenger this[int index]
@@ -40,19 +42,6 @@ namespace CoorseProject
                 passengers[Count] = user;
                 Count++;
             }
-            else
-                throw new Exception("Нет такого количества свободных мест!");
-
-        }
-
-        public override string ToString()
-        {
-            string rez = "";
-            for (int i = 0; i < this.Count; i++)
-            {
-                rez += "\n" + passengers[i];
-            }
-            return rez;
         }
     }
 }

@@ -18,11 +18,6 @@ namespace CoorseProject
             InitializeComponent();
         }
 
-        private void textBox1Minutes_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,42 +27,51 @@ namespace CoorseProject
         {
             try
             {
-                int Number = Convert.ToInt32(textBox1Number.Text);
-                string day = numericUpDown1day.Value + "." + numericUpDown2month.Value + "." + numericUpDown3years.Value;
+                string Number = textBox1Number.Text;
+                string day = dateTimePicker1.Value.Day.ToString() + "."
+                          + dateTimePicker1.Value.Month.ToString() + "."
+                          + dateTimePicker1.Value.Year.ToString();
+                
                 string time = numericUpDown4Hours.Value + ":" + numericUpDown5Minutes.Value;
+               
                 string[] StopStations = textBox1StopStations.Text.Split(',');
-                string DepartureFrom = textBox1DepartureFrom.Text;
-                string ArrivalIn = textBox1ArrivalIn.Text;
+                string DepartureFrom = Program.RemoveSpaces(textBox1DepartureFrom.Text);
+                string ArrivalIn = Program.RemoveSpaces(textBox1ArrivalIn.Text);
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
-                if (DepartureFrom == "" || ArrivalIn == "")
+
+                if (String.IsNullOrWhiteSpace(DepartureFrom) || String.IsNullOrWhiteSpace(ArrivalIn))
                 {
                     MessageBox.Show("Укажите маршрут!", "Оповещение");
                     return;
                 }
-                Flight newFlight = new Flight(Number, DepartureFrom, ArrivalIn, time, day, countPlaces, StopStations);
-                FlightCollection file = new FlightCollection("Flights.txt");
-                bool m = false;
-                for (int i = 0; i < file.Count; i++)
+                if (Convert.ToDateTime(time).TimeOfDay < DateTime.Now.TimeOfDay && Convert.ToDateTime(day).Equals(DateTime.Now.Date))
                 {
-                    if (file[i].Number == newFlight.Number)
-                    {
-                        m = true;
-                    }
-                }
-
-                if (m)
-                {
-                    MessageBox.Show("Рейс с таким номером уже существует.","Оповещение");
+                    MessageBox.Show("Время должно быть больше текущего!", "Оповещение");
                     return;
                 }
-                newFlight.WriteInFile("Flights.txt");
-                MessageBox.Show("Рейс успешно добавлен! Обновите расписание.", "Оповещение");
+                Flight newFlight;
+                FlightCollection file = new FlightCollection();
+                Flight Current = file.FindByNumber(Convert.ToInt32(Number));
+
+                if (Current == null)
+                {
+                    newFlight = new Flight(Number, DepartureFrom, ArrivalIn, time, day, countPlaces, StopStations);
+                    file.AddFlightAndWriteInFile(newFlight);
+                }
+                else
+                {
+                    MessageBox.Show("Рейс с таким номером уже существует.", "Оповещение");
+                    return;
+                }
                 this.Close();
+                Program.form1.FirstFunc();
             }
-            catch(Exception)
+            catch (Exception)
             {
-                MessageBox.Show("Проверьте правильность введённых данных.","Оповещение");
+                MessageBox.Show("Проверьте правильность введённых данных.", "Оповещение");
             }
         }
+
+       
     }
 }

@@ -11,12 +11,34 @@ namespace CoorseProject
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        ///  
+        public static Schedule form1; // поле для хранения ссылки на главную форму
+        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Schedule());
+            
+            Application.Run(form1 = new Schedule());
+        }
+
+        public static string RemoveSpaces(string str) // Метод, который удаляет лишние пробельные символы
+        {
+            string[] t = str.Split(' ');
+            string res = "";
+            for (int i = 0; i < t.Length; i++)
+            {
+                if (t[i] != "")
+                {
+                    res += t[i];
+                    if (i != t.Length - 1)
+                    {
+                        res += " ";
+                    }
+                }
+            }
+            return res;
         }
         public static string GetStations(string[] str) // Метод, который будет использован для вывода промежуточных станций 
         {                                              //(Промежуточные станции - это массив строк)

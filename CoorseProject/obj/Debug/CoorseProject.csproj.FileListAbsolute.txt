@@ -1,21 +1,13 @@
-c:\users\эмиль\documents\visual studio 2015\Projects\CoorseProject\CoorseProject\bin\Debug\CoorseProject.exe.config
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\bin\Debug\CoorseProject.exe
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\bin\Debug\CoorseProject.pdb
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csprojResolveAssemblyReference.cache
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Reserve.resources
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Properties.Resources.resources
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csproj.GenerateResource.Cache
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.exe
-C:\Users\Эмиль\Documents\Visual Studio 2015\Projects\CoorseProject\CoorseProject\obj\Debug\CoorseProject.pdb
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\bin\Debug\CoorseProject.exe.config
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.exe
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.pdb
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\bin\Debug\CoorseProject.exe
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\bin\Debug\CoorseProject.pdb
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csprojResolveAssemblyReference.cache
-C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Reserve.resources
-C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Properties.Resources.resources
-C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csproj.GenerateResource.Cache
-C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Schedule.resources
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.AddFlight.resources
-C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.InformationOfFlight.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.EditFlight.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Reserve.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Info.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Properties.Resources.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Schedule.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csproj.GenerateResource.Cache

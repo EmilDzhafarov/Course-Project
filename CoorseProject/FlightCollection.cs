@@ -9,50 +9,16 @@ namespace CoorseProject
 {
     /*
             Класс FlightCollection наследуемый от List<Flight> является важнейшим во всей программе. В конструкторе происходит 
-            подключение к текстовому файлу Flights.txt, который содержит в себе все рейсы. Однако конструктор помимо пути к файлу 
-            принимает ещё два параметра: "откуда" и "куда". Благодаря этому в коллекцию попадают только те рейсы, которые удовлетворяют
-            условиям:
-                  1) Рейсы, у которых совпадает поле "DepartureFrom" с параметром конструктора "откуда";
-                  2) Рейсы, у которых совпадает поле "ArrivalIn" с параметром конструктора "куда";
-                  3) Рейсы, у которых выполняются оба вышеуказанные условия;
-            Также возможна "подсадка" пассажира на определённом рейсе. Например есть рейс Москва-Стамбул, который приземляется в Харькове
-            (то есть Харьков входит в массив "StopStation" этого рейса).В таком случае если пассажир введёт Харьков-Стамбул, ему будет показан
-            и этот рейс.
+            подключение к указанному файлу, который содержит в себе все рейсы. Однако конструктор перегружен  и принимает два параметра: 
+            "откуда" и "куда". Благодаря этому в коллекцию попадают только те рейсы, которые удовлетворяют
+            параметрам конструктора.
     */
 
     class FlightCollection :List<Flight>
     {
-        private string _path;
-        public FlightCollection(string path,string dep,string arrival)
-        {
-            _path = path;
-            StreamReader flights = new StreamReader(path);
-            while (!flights.EndOfStream)
-            {
-                string s = flights.ReadLine();
-                string[] arr = s.Split('|');
-                if (arr.Length != 7)
-                {
-                    throw new Exception();
-                }
-                else
-                {
-                    if ((arr[1] == dep && arr[2] == arrival) ||
-                    (arr[6].IndexOf(arrival) != -1 && arr[1] == dep) ||
-                    (arr[6].IndexOf(dep) != -1 && arr[2] == arrival))
-                    {
-                        this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));   
-                    }
-                }
-                
-            }
-            flights.Close();
-        }
-
-        public FlightCollection(string path)
-        {
-            _path = path;
-            using (StreamReader flights = new StreamReader(path))
+        public FlightCollection(string dep,string arrival)
+        {     
+            using (StreamReader flights = new StreamReader("Flights.txt"))
             {
                 while (!flights.EndOfStream)
                 {
@@ -60,14 +26,39 @@ namespace CoorseProject
                     string[] arr = s.Split('|');
                     if (arr.Length != 7)
                     {
-                        throw new IndexOutOfRangeException();
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        if ((arr[1] == dep && arr[2] == arrival) ||
+                        (arr[6].IndexOf(arrival) != -1 && arr[1] == dep))
+                        {
+                            this.Add(new Flight(arr[0], arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+                        }
+                    }
+                }
+                flights.Close();
+            }
+        }
+
+        public FlightCollection() 
+        {
+            using (StreamReader flights = new StreamReader("Flights.txt"))
+            {
+                while (!flights.EndOfStream)
+                {
+                    string s = flights.ReadLine();
+                    string[] arr = s.Split('|');
+                    if (arr.Length != 7)
+                    {
+                        throw new Exception();
                     }
                     if (String.IsNullOrWhiteSpace(arr[1]) || String.IsNullOrWhiteSpace(arr[2]) || String.IsNullOrWhiteSpace(arr[3])
                         || String.IsNullOrWhiteSpace(arr[4]))
                     {
                         throw new ArgumentNullException();
                     }
-                    this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+                    this.Add(new Flight(arr[0], arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
                 }
                 flights.Close();
             }
@@ -89,9 +80,9 @@ namespace CoorseProject
             }
         }
 
-        public void WriteInFile()
+        public void WriteInFile() // Метод, который записывает в файл построчно данные о всех рейсах
         {
-            using (StreamWriter wr = new StreamWriter(_path, true))
+            using (StreamWriter wr = new StreamWriter("Flights.txt", true))
             {
                 for (int i = 0; i < this.Count; i++)
                 {
@@ -100,11 +91,32 @@ namespace CoorseProject
                 wr.Close();
             }
         }
-        public void ClearFile()
+        public void ClearFile() // метод, который очищает файл, который хранит все рейсы.
         {
-            using (StreamWriter wr = new StreamWriter(_path))
+            using (StreamWriter wr = new StreamWriter("Flights.txt"))
             {
                 wr.Write("");
+                wr.Close();
+            }
+        }
+        public Flight FindByNumber(int num) // Метод, который находит заданный по номеру рейс
+        {
+            for (int i = 0; i < this.Count; i++)
+            {
+                if (this[i].Number == num)
+                {
+                    return this[i];
+                }
+            }
+            return null;
+        }
+
+        public void AddFlightAndWriteInFile(Flight obj) // Метод, который добавляет рейс и сразу записывает его в файл
+        {
+            this.Add(obj);
+            using (StreamWriter wr = new StreamWriter("Flights.txt", true))
+            {
+                wr.WriteLine(obj.ToString());
                 wr.Close();
             }
         }
