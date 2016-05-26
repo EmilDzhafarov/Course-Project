@@ -47,7 +47,6 @@
             // listBox1info
             // 
             this.listBox1info.BackColor = System.Drawing.Color.Gainsboro;
-            this.listBox1info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1info.Enabled = false;
             this.listBox1info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1info.ForeColor = System.Drawing.Color.Black;
@@ -55,7 +54,7 @@
             this.listBox1info.Location = new System.Drawing.Point(21, 97);
             this.listBox1info.Name = "listBox1info";
             this.listBox1info.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1info.Size = new System.Drawing.Size(463, 197);
+            this.listBox1info.Size = new System.Drawing.Size(463, 184);
             this.listBox1info.TabIndex = 0;
             // 
             // dataGridView1
@@ -170,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(499, 537);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);

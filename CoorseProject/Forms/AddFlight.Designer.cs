@@ -16,7 +16,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
-            }   
+            }
             base.Dispose(disposing);
         }
 
@@ -54,14 +54,11 @@
             this.numericUpDown1ArrHours = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2ArrMinutes = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown1TicketPrice = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6countPlaces)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4DepHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5DepMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2ArrMinutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1TicketPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -225,7 +222,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(23, 427);
+            this.label8.Location = new System.Drawing.Point(22, 395);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(173, 16);
@@ -234,7 +231,7 @@
             // 
             // textBox1StopStations
             // 
-            this.textBox1StopStations.Location = new System.Drawing.Point(200, 424);
+            this.textBox1StopStations.Location = new System.Drawing.Point(199, 395);
             this.textBox1StopStations.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1StopStations.Name = "textBox1StopStations";
             this.textBox1StopStations.Size = new System.Drawing.Size(144, 22);
@@ -244,10 +241,10 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(262, 482);
+            this.button1.Location = new System.Drawing.Point(262, 447);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 33);
+            this.button1.Size = new System.Drawing.Size(81, 28);
             this.button1.TabIndex = 18;
             this.button1.Text = "Добавить!";
             this.button1.UseVisualStyleBackColor = true;
@@ -257,10 +254,10 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(182, 482);
+            this.button2.Location = new System.Drawing.Point(182, 447);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 33);
+            this.button2.Size = new System.Drawing.Size(76, 28);
             this.button2.TabIndex = 19;
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
@@ -270,11 +267,11 @@
             // 
             this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(141, 183);
             this.dateTimePicker1DepartureDay.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1DepartureDay.MinDate = new System.DateTime(2016, 5, 6, 14, 23, 40, 470);
+            this.dateTimePicker1DepartureDay.MinDate = System.DateTime.Now;
             this.dateTimePicker1DepartureDay.Name = "dateTimePicker1DepartureDay";
             this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(167, 22);
             this.dateTimePicker1DepartureDay.TabIndex = 23;
-            this.dateTimePicker1DepartureDay.Value = new System.DateTime(2016, 5, 6, 14, 23, 40, 471);
+            this.dateTimePicker1DepartureDay.Value = System.DateTime.Now;
             // 
             // label9
             // 
@@ -304,11 +301,11 @@
             // 
             this.dateTimePicker2ArrivalDay.Location = new System.Drawing.Point(141, 267);
             this.dateTimePicker2ArrivalDay.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2ArrivalDay.MinDate = new System.DateTime(2016, 5, 6, 14, 23, 40, 470);
+            this.dateTimePicker2ArrivalDay.MinDate = System.DateTime.Now;
             this.dateTimePicker2ArrivalDay.Name = "dateTimePicker2ArrivalDay";
             this.dateTimePicker2ArrivalDay.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker2ArrivalDay.TabIndex = 26;
-            this.dateTimePicker2ArrivalDay.Value = new System.DateTime(2016, 5, 6, 14, 23, 40, 471);
+            this.dateTimePicker2ArrivalDay.Value = System.DateTime.Now;
             // 
             // label11
             // 
@@ -318,9 +315,9 @@
             this.label11.Location = new System.Drawing.Point(22, 311);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 16);
+            this.label11.Size = new System.Drawing.Size(115, 16);
             this.label11.TabIndex = 27;
-            this.label11.Text = "Время вылета";
+            this.label11.Text = "Время прибытия";
             // 
             // numericUpDown1ArrHours
             // 
@@ -336,7 +333,7 @@
             this.numericUpDown1ArrHours.TabIndex = 28;
             // 
             // numericUpDown2ArrMinutes
-            //
+            // 
             this.numericUpDown2ArrMinutes.Location = new System.Drawing.Point(204, 309);
             this.numericUpDown2ArrMinutes.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2ArrMinutes.Maximum = new decimal(new int[] {
@@ -359,49 +356,12 @@
             this.label12.TabIndex = 30;
             this.label12.Text = ":";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(23, 390);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 16);
-            this.label13.TabIndex = 31;
-            this.label13.Text = "Стоимость билета";
-            // 
-            // numericUpDown1TicketPrice
-            // 
-            this.numericUpDown1TicketPrice.Location = new System.Drawing.Point(155, 388);
-            this.numericUpDown1TicketPrice.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown1TicketPrice.Maximum = new decimal(new int[] {
-            200000,
-            0,
-            0,
-            0});
-            this.numericUpDown1TicketPrice.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDown1TicketPrice.Name = "numericUpDown1TicketPrice";
-            this.numericUpDown1TicketPrice.Size = new System.Drawing.Size(64, 22);
-            this.numericUpDown1TicketPrice.TabIndex = 32;
-            this.numericUpDown1TicketPrice.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
             // AddFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(357, 526);
-            this.Controls.Add(this.numericUpDown1TicketPrice);
-            this.Controls.Add(this.label13);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(357, 488);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.numericUpDown2ArrMinutes);
             this.Controls.Add(this.numericUpDown1ArrHours);
@@ -439,7 +399,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5DepMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2ArrMinutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1TicketPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,7 +431,5 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1ArrHours;
         private System.Windows.Forms.NumericUpDown numericUpDown2ArrMinutes;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDown1TicketPrice;
     }
 }

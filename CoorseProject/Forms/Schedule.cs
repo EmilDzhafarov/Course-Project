@@ -18,55 +18,40 @@ namespace CoorseProject
         }
         private void Schedule_Load(object sender, EventArgs e)
         {
-             FirstFunc();
+            OnLoadFuction();
         }
-       
-        public void FirstFunc()
+
+        public void OnLoadFuction()
         {
             foreach (DataGridViewColumn colum in dataGridView1.Columns)
             {
                 colum.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            dataGridView1.Rows.Clear();
-            DateTime now = DateTime.Now;
-
-            if (System.IO.File.Exists("Flights.txt") == false)
-            {
-                if (System.IO.Directory.Exists("Passengers"))
-                {
-                    System.IO.Directory.Delete("Passengers",true);
-                }
-                
-                System.IO.FileStream file = new System.IO.FileStream("Flights.txt",System.IO.FileMode.Create);
-                file.Close();
-            }
             try
             {
+                dataGridView1.Rows.Clear();
+
                 FlightCollection list = new FlightCollection();
                 list.SortingByDays();
-
-                for (int i = list.Count-1; i >= 0; i--)
+                for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    if (list[i].Departure >= now)
-                    {
-                        dataGridView1.Rows.Add(list[i].Number,
+                    
+                          dataGridView1.Rows.Add(list[i].Number,
                                                  list[i].FreePlaces,
                                                  list[i].DepartureFrom,
                                                  list[i].ArrivalIn,
                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
                                                  list[i].Departure.Date.ToString().Split(' ')[0],
                                                  list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
-                                                  list[i].Arrival.Date.ToString().Split(' ')[0],
-                                                 list[i].TicketPrice,
-                                                 Program.GetStations(list[i].StopStation)
-                                                 );
-                    }
+                                                 list[i].Arrival.Date.ToString().Split(' ')[0],
+                                                 Program.GetStopStations(list[i].StopStation));
                 }
             }
             catch
             {
-                MessageBox.Show("Ошибка в базе данных!","Оповещение");
+                this.Show();
+                MessageBox.Show("Ошибка в базе данных!", "Оповещение");
                 this.Close();
             }
         }
@@ -85,7 +70,6 @@ namespace CoorseProject
         {
             MessageBox.Show(@"Тема курсового проекта: Касса аэрофлота
 Разработчик: ст.группы ПИ-15-2 Джафаров Эмиль
-Ссылка на GitHub: https://github.com/EmilDzhafarov/Coorse-Project.git
 Электронная почта: emil.dzhafarov@nure.ua
 Версия программы: 1.0", "О программе");
         }
@@ -94,36 +78,20 @@ namespace CoorseProject
             this.Close();
         }
 
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AddFlight ob = new AddFlight();
-            ob.Show();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
                 string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
                 FlightCollection file = new FlightCollection();
-                Flight Current = file.FindByNumber(Convert.ToInt32(num));
-                
-                file.Remove(Current);
-                        
-                if (System.IO.File.Exists("Passengers\\" + num + "Passengers.txt") == true)
-                {
-                     System.IO.File.Delete("Passengers\\" + num + "Passengers.txt");
-                }
-                 
+                file.RemoveFlightAndFile(num);
                 file.ClearFile();
                 file.WriteInFile();
-                FirstFunc();
+                OnLoadFuction();
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Не выбрано ни одного рейса!","Оповещение");
+                MessageBox.Show("Не выбрано ни одного рейса!", "Оповещение");
             }
         }
 
@@ -135,7 +103,7 @@ namespace CoorseProject
                 EditFlight ob = new EditFlight(num);
                 ob.Show();
             }
-           catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Не выбрано ни одного рейса!", "Оповещение");
             }
@@ -149,10 +117,21 @@ namespace CoorseProject
                 Info ob = new Info(num);
                 ob.Show();
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
-                MessageBox.Show("Не выбрано ни одного рейса!","Оповещение");
+                MessageBox.Show("Не выбрано ни одного рейса!", "Оповещение");
             }
+        }
+
+        private void добавитьРейсToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            AddFlight ob = new AddFlight();
+            ob.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

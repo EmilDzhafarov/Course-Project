@@ -36,26 +36,20 @@ namespace CoorseProject
                 string depTime = numericUpDown1DepHour.Value + ":" + numericUpDown2DepMinutes.Value;
                 string arrTime = numericUpDown1ArrHours.Value + ":" + numericUpDown1ArrMinutes.Value;
 
-                string[] StopStations = textBox3stopstat.Text.Split(',');
-                List<string> arr = Current.StopStation.ToList<string>();
+                string StopStation = textBox3stopstat.Text;
 
-                for (int i = 0; i < StopStations.Length; i++)
-                {
-                    arr.Add(StopStations[i]);
-                }
+                Current.AddStopStation(StopStation);
 
-                Current.StopStation = arr.ToArray();
                 Current.Departure = Convert.ToDateTime(depDay + " " + depTime);
                 Current.Arrival = Convert.ToDateTime(arrDay + " " + arrTime);
                 File.ClearFile();
                 File.WriteInFile();
                 this.Close();
-                Program.form1.FirstFunc();
+                Program.MainForm.OnLoadFuction();
             }
-            
-            catch(Exception)
+            catch (Exception myexp)
             {
-                MessageBox.Show("Проверьте правильность введённых данных!", "Оповещение");
+                MessageBox.Show(myexp.Message, "Оповещение");
             }
         }
 
@@ -75,7 +69,8 @@ namespace CoorseProject
             numericUpDown2DepMinutes.Value = Current.Departure.TimeOfDay.Minutes;
             numericUpDown1ArrHours.Value = Current.Arrival.TimeOfDay.Hours;
             numericUpDown1ArrMinutes.Value = Current.Arrival.TimeOfDay.Minutes;
-            numericUpDown1Price.Value = Current.TicketPrice;
+            dateTimePicker1DepartureDay.Value = Current.Departure;
+            dateTimePicker2arrivalDay.Value = Current.Arrival;
         }
     }
 }

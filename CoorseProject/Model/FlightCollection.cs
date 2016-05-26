@@ -9,59 +9,48 @@ namespace CoorseProject
 {
     /*
             Класс FlightCollection наследуемый от List<Flight> является важнейшим во всей программе. В конструкторе происходит 
-            подключение к указанному файлу, который содержит в себе все рейсы. Однако конструктор перегружен  и принимает два параметра: 
-            "откуда" и "куда". Благодаря этому в коллекцию попадают только те рейсы, которые удовлетворяют
-            параметрам конструктора.
+            подключение к указанному файлу, который содержит в себе все рейсы. Благодаря тому, что конструктор может принимать от 0 до 2 параметров,
+            в коллекцию попадают только те рейсы, которые удовлетворяют параметрам конструктора.
     */
 
-    class FlightCollection :List<Flight>
+    class FlightCollection : List<Flight>
     {
-        public FlightCollection(string dep,string arrival)
+        public FlightCollection(string dep = null, string arrival = null)
         {
-            CreateFlightCollection();
-            List<Flight> rez = new List<Flight>();
-
-            foreach (Flight obj in this)
-            {
-                if ((obj.DepartureFrom == dep && obj.ArrivalIn == arrival) ||
-                        (Array.IndexOf(obj.StopStation,arrival) != -1 && obj.DepartureFrom == dep))
-                {
-                    rez.Add(obj);
-                }
-            }
-
-            this.Clear();
-            this.AddRange(rez);
-        }
-
-        public FlightCollection()
-        {
-            CreateFlightCollection();
-        }
-
-        private void CreateFlightCollection() 
-        {
+            this.CheckFile();
+            DateTime now = DateTime.Now;
             using (StreamReader flights = new StreamReader("Flights.txt"))
             {
                 while (!flights.EndOfStream)
                 {
                     string s = flights.ReadLine();
                     string[] arr = s.Split('|');
-                    if (arr.Length != 10)
+                    if (arr.Length != 9)
                     {
                         throw new Exception();
                     }
 
-                    this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],
-                                        arr[4], arr[5], arr[6],
-                                        Convert.ToInt32(arr[7]), Convert.ToInt32(arr[8]), arr[9]));
+                    if (dep != null && arrival != null)
+                    {
+                        if (Convert.ToDateTime(arr[3] + " " + arr[4]) >= now &&
+                           (arr[1] == dep && arr[2] == arrival || arr[1] == dep && arr[8].IndexOf(arrival) != -1))
+                        {
+                            this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],arr[4], arr[5], arr[6],Convert.ToInt32(arr[7]), arr[8].Split(',')));
+                        }
+                    }
+
+                    else if ((dep == null || arrival == null) && Convert.ToDateTime(arr[3] + " " + arr[4]) >= now)
+                    {
+                          this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],arr[4], arr[5], arr[6],Convert.ToInt32(arr[7]), arr[8].Split(',')));
+                    }
+                   
                 }
                 flights.Close();
             }
         }
-        
+
         public void SortingByDays() // Метод сортировки пузырьком рейсов по отправлению. 
-        {                           
+        {
             for (int i = 0; i < this.Count - 1; i++)
             {
                 for (int j = i + 1; j < this.Count; j++)
@@ -114,6 +103,34 @@ namespace CoorseProject
             {
                 wr.WriteLine(obj.ToString());
                 wr.Close();
+            }
+        }
+
+        public void RemoveFlightAndFile(string num) // Метод для удаления рейса и файла, содержащего список пассажиров, зарегистрированных на этот рейс
+        {
+            Flight Current = this.FindByNumber(Convert.ToInt32(num));
+
+            if (Current != null)
+            {
+                this.Remove(Current);
+
+                if (System.IO.File.Exists("Passengers\\" + num + "Passengers.txt") == true)
+                {
+                    System.IO.File.Delete("Passengers\\" + num + "Passengers.txt");
+                }
+            }
+        }
+        public void CheckFile()
+        {
+            if (System.IO.File.Exists("Flights.txt") == false)
+            {
+                if (System.IO.Directory.Exists("Passengers"))
+                {
+                    System.IO.Directory.Delete("Passengers", true);
+                }
+
+                System.IO.FileStream file = new System.IO.FileStream("Flights.txt", System.IO.FileMode.Create);
+                file.Close();
             }
         }
     }

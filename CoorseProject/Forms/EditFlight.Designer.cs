@@ -54,13 +54,10 @@ namespace CoorseProject
             this.numericUpDown1ArrHours = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown1ArrMinutes = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown1Price = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1DepHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2DepMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrMinutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1Price)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -90,21 +87,21 @@ namespace CoorseProject
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(24, 369);
+            this.label5.Location = new System.Drawing.Point(24, 333);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 16);
+            this.label5.Size = new System.Drawing.Size(171, 16);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Промежуточные посадки";
+            this.label5.Text = "Промежуточная посадка";
             // 
             // dateTimePicker1DepartureDay
             // 
             this.dateTimePicker1DepartureDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(124, 178);
-            this.dateTimePicker1DepartureDay.MinDate = new System.DateTime(2016, 5, 6, 14, 38, 13, 163);
+            this.dateTimePicker1DepartureDay.MinDate = System.DateTime.Now;
             this.dateTimePicker1DepartureDay.Name = "dateTimePicker1DepartureDay";
             this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(132, 22);
             this.dateTimePicker1DepartureDay.TabIndex = 7;
-            this.dateTimePicker1DepartureDay.Value = new System.DateTime(2016, 5, 6, 14, 38, 13, 163);
+            this.dateTimePicker1DepartureDay.Value = System.DateTime.Now;
             // 
             // numericUpDown1DepHour
             // 
@@ -132,7 +129,7 @@ namespace CoorseProject
             // 
             // textBox3stopstat
             // 
-            this.textBox3stopstat.Location = new System.Drawing.Point(203, 365);
+            this.textBox3stopstat.Location = new System.Drawing.Point(203, 333);
             this.textBox3stopstat.Name = "textBox3stopstat";
             this.textBox3stopstat.Size = new System.Drawing.Size(143, 20);
             this.textBox3stopstat.TabIndex = 10;
@@ -141,7 +138,7 @@ namespace CoorseProject
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(262, 418);
+            this.button1.Location = new System.Drawing.Point(262, 379);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 26);
             this.button1.TabIndex = 11;
@@ -153,7 +150,7 @@ namespace CoorseProject
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(180, 418);
+            this.button2.Location = new System.Drawing.Point(180, 379);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 26);
             this.button2.TabIndex = 12;
@@ -257,11 +254,11 @@ namespace CoorseProject
             // 
             this.dateTimePicker2arrivalDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker2arrivalDay.Location = new System.Drawing.Point(137, 211);
-            this.dateTimePicker2arrivalDay.MinDate = new System.DateTime(2016, 5, 6, 14, 38, 13, 163);
+            this.dateTimePicker2arrivalDay.MinDate = System.DateTime.Now;
             this.dateTimePicker2arrivalDay.Name = "dateTimePicker2arrivalDay";
             this.dateTimePicker2arrivalDay.Size = new System.Drawing.Size(132, 22);
             this.dateTimePicker2arrivalDay.TabIndex = 22;
-            this.dateTimePicker2arrivalDay.Value = new System.DateTime(2016, 5, 6, 14, 38, 13, 163);
+            this.dateTimePicker2arrivalDay.Value = System.DateTime.Now;
             // 
             // label10
             // 
@@ -308,48 +305,12 @@ namespace CoorseProject
             this.numericUpDown1ArrMinutes.Size = new System.Drawing.Size(39, 20);
             this.numericUpDown1ArrMinutes.TabIndex = 26;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(24, 331);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(128, 16);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Стоимость билета";
-            // 
-            // numericUpDown1Price
-            // 
-            this.numericUpDown1Price.Enabled = false;
-            this.numericUpDown1Price.Location = new System.Drawing.Point(158, 331);
-            this.numericUpDown1Price.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.numericUpDown1Price.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericUpDown1Price.Name = "numericUpDown1Price";
-            this.numericUpDown1Price.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown1Price.TabIndex = 28;
-            this.numericUpDown1Price.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
             // EditFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(358, 456);
-            this.Controls.Add(this.numericUpDown1Price);
-            this.Controls.Add(this.label12);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(358, 417);
             this.Controls.Add(this.numericUpDown1ArrMinutes);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.numericUpDown1ArrHours);
@@ -383,7 +344,6 @@ namespace CoorseProject
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2DepMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1ArrMinutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1Price)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,7 +373,5 @@ namespace CoorseProject
         private System.Windows.Forms.NumericUpDown numericUpDown1ArrHours;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDown1ArrMinutes;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDown1Price;
     }
 }

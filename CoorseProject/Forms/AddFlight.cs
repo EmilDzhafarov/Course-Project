@@ -40,21 +40,18 @@ namespace CoorseProject
                 string DepartureFrom = Program.RemoveSpaces(textBox1DepartureFrom.Text);
                 string ArrivalIn = Program.RemoveSpaces(textBox1ArrivalIn.Text);
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
-                int ticketPrice = Convert.ToInt32(numericUpDown1TicketPrice.Value);
-
-                if (String.IsNullOrWhiteSpace(DepartureFrom) || String.IsNullOrWhiteSpace(ArrivalIn))
-                {
-                    MessageBox.Show("Укажите маршрут!", "Оповещение");
-                    return;
-                }
 
                 Flight newFlight;
                 FlightCollection file = new FlightCollection();
                 Flight Current = file.FindByNumber(Convert.ToInt32(Number));
-
+                if (Convert.ToDateTime(depDay + " " + depTime) < DateTime.Now)
+                {
+                    MessageBox.Show("Время и дата отправления должны быть больше текущих.", "Оповещение");
+                    return;
+                }
                 if (Current == null)
                 {
-                    newFlight = new Flight(Number, DepartureFrom, ArrivalIn, depTime, depDay, arrTime,arrDay, ticketPrice, countPlaces, StopStations);
+                    newFlight = new Flight(Number, DepartureFrom, ArrivalIn, depTime, depDay, arrTime, arrDay, countPlaces, StopStations);
                     file.AddFlightAndWriteInFile(newFlight);
                 }
                 else
@@ -63,11 +60,19 @@ namespace CoorseProject
                     return;
                 }
                 this.Close();
-                Program.form1.FirstFunc();
+                Program.MainForm.OnLoadFuction();
             }
-            catch (Exception)
+            catch (FormatException)
             {
                 MessageBox.Show("Проверьте правильность введённых данных.", "Оповещение");
+            }
+            catch(ArithmeticException)
+            {
+                MessageBox.Show("Номер рейса слишком длинный.", "Оповещение");
+            }
+            catch (Exception my)
+            {
+                MessageBox.Show(my.Message, "Оповещение");
             }
         }
     }

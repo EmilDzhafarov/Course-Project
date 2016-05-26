@@ -9,27 +9,29 @@ namespace CoorseProject
 {
     public class Flight
     {
-        private DateTime _arrival;
+        private DateTime _arrival;    // скрытые поля для отображения отправления и прибытия
         private DateTime _departure;
 
-        public Flight(string num, string dep, string arrival, 
-                      string deptime, string depday, 
-                      string arrtime, string arrday, int price, 
-                      int countPlace, params string[] mas) 
+        public Flight(string num, string dep, string arrival,string deptime, string depday,string arrtime, string arrday,int countPlace, params string[] mas)
         {
-            Number = Convert.ToInt32(num); 
-            DepartureFrom = Program.RemoveSpaces(dep); 
-            ArrivalIn = Program.RemoveSpaces(arrival); 
+            Number = Convert.ToInt32(num);
+            DepartureFrom = Program.RemoveSpaces(dep);
+            ArrivalIn = Program.RemoveSpaces(arrival);
             _departure = Convert.ToDateTime(depday + " " + deptime);
             _arrival = Convert.ToDateTime(arrday + " " + arrtime);
-            if (_arrival <= _departure || _departure < DateTime.Now)
-                throw new Exception();
+            if (DepartureFrom == "" || ArrivalIn == "")
+            {
+                throw new Exception("Укажите маршрут!");
+            }
+            if (_departure >= _arrival)
+            {
+                throw new Exception("Время и дата прибытия должны быть больше времени и даты отправления!");
+            }
             StopStation = mas;
             CountPlaces = countPlace;
-            TicketPrice = price;
-            ReadFromFile(); 
+            ReadFromFile();
         }
-        
+
         public int Number { get; set; } // Номер рейса
 
         public string DepartureFrom { get; set; } // Откуда отправляется
@@ -48,12 +50,12 @@ namespace CoorseProject
             {
                 if (value < DateTime.Now)
                 {
-                    throw new Exception();
+                    throw new Exception("Время и дата отравления должны быть больше текущих!");
                 }
                 else
                     _departure = value;
             }
-        } 
+        }
 
         public DateTime Arrival // Время и день прибытия
         {
@@ -65,14 +67,13 @@ namespace CoorseProject
             {
                 if (value <= Departure)
                 {
-                    throw new Exception();
+                    throw new Exception("Время и дата прибытия должны быть больше времени и даты отправления!");
                 }
                 else
                     _arrival = value;
             }
-        } 
+        }
 
-        public int TicketPrice { get; set; } // Стоимость билета на рейс
 
         public int CountPlaces { get; set; } // Общее количество мест
 
@@ -107,9 +108,38 @@ namespace CoorseProject
                 file.Close();
             }
         }
+        public bool AddPassenger(Passenger user, decimal count) // Метод для добавления пассажира на рейс
+        {
+            if (count <= this.FreePlaces)
+            {
+                while (count != 0)
+                {
+                    this.ListOfPassengers.AddPassenger(user);
+                    user.WriteInFile(this.Number);
+                    count--;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public void AddStopStation(string stopStat) // Метод для добавления промежуточных станций
+        {
+            if (this.StopStation.Contains(stopStat) || this.DepartureFrom == stopStat || this.ArrivalIn == stopStat)
+            {
+                throw new Exception("Данный пункт уже включен в пункты промежуточной посадки этого рейса.\nИли данный рейс отправляется или прибывает в заданный пункт. ");
+            }
+            else
+            {
+                List<string> arr = this.StopStation.ToList<string>();
+                arr.Add(stopStat);
+                StopStation = arr.ToArray<string>();
+            }
+        }
+
         public override string ToString()
         {
-            return string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}",
+            return string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}",
                 Number,
                 DepartureFrom,
                 ArrivalIn,
@@ -117,9 +147,8 @@ namespace CoorseProject
                 Departure.ToString().Split(' ')[0],
                 Arrival.TimeOfDay.ToString("hh':'mm"),
                 Arrival.ToString().Split(' ')[0],
-                TicketPrice,
                 CountPlaces,
-                Program.GetStations(StopStation));
+                Program.GetStopStations(StopStation));
         }
     }
 }

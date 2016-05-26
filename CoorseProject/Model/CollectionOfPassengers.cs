@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace CoorseProject
 {
     /*
-         Класс Passengers предназначен для хранения списка пассажиров на определённом рейсе. В основание класса положен массив Passenger[]
-         и реализованы несколько методов. Для удобства работы переопределён метод ToString().
+         Класс CollectionOfPassengers предназначен для хранения списка пассажиров на определённом рейсе.
+         В основание класса положен массив Passenger[] и реализованы несколько методов. Для удобства работы переопределён метод ToString().
     */
 
-    public class CollectionOfPassengers  
+    public class CollectionOfPassengers
     {
         public Passenger[] passengers;
 
