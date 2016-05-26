@@ -19,28 +19,26 @@ namespace CoorseProject
 
     class Passenger
     {
-
-        public Passenger(string name, string surname, string middlename, string route)
+        public Passenger(string name, string surname, string middlename)
         {
             Name = name;
             Surname = surname;
             MiddleName = middlename;
-            Route = route;
         }
 
         public string Name { get; set; }
         public string Surname { get; set; }
         public string MiddleName { get; set; }
-        public string Route { get; set; }
+        
 
         public override string ToString()
         {
-            return string.Format("{0}_{1}_{2}_{3}", Name, Surname, MiddleName, Route);
+            return string.Format("{0}_{1}_{2}", Name, Surname, MiddleName);
         }
 
         public void WriteInFile(int n)
         {
-            File.AppendAllText(n + "Passangers.txt", "\n" + ToString() + "\r");
+            File.AppendAllText(n + "Passangers.txt", "\n" + ToString() + "\r", Encoding.GetEncoding("Windows-1251"));
         }
     }
 }

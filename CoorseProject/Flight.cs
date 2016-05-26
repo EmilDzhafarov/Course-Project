@@ -19,6 +19,8 @@ namespace CoorseProject
 
         public DateTime Departure; // Время и день вылета
 
+        private int CountPlaces;
+
         public string[] StopStation; // Места промежуточной посадки
 
         public Flight(int num, string dep, string arrival, string time, string day,int countPlace, params string[] mas)
@@ -28,7 +30,8 @@ namespace CoorseProject
             ArrivalIn = arrival; 
             Departure = Convert.ToDateTime(day + " " + time); 
             StopStation = mas;
-            ReadFromFile(countPlace); 
+            CountPlaces = countPlace;
+            ReadFromFile(); 
         }
 
         public int FreePlaces // Свойство, которое показывает количество свободных мест на борту 
@@ -39,9 +42,9 @@ namespace CoorseProject
             }
         }
 
-        private void ReadFromFile(int k)
+        private void ReadFromFile()
         {
-            ListOfPassengers = new Passengers(k);
+            ListOfPassengers = new Passengers(CountPlaces);
             
             FileStream file = new FileStream(Number + "Passangers.txt", FileMode.OpenOrCreate);
             StreamReader pass = new StreamReader(file);
@@ -50,13 +53,34 @@ namespace CoorseProject
             {
                 string s = pass.ReadLine();
                 string[] arr = s.Split('_');
-                if (arr.Length == 4)
-                    ListOfPassengers.AddPassenger(new Passenger(arr[0], arr[1], arr[2], arr[3]));
+                if (arr.Length == 3)
+                    ListOfPassengers.AddPassenger(new Passenger(arr[0], arr[1], arr[2]));
                 
             }
             pass.Close();
             file.Close();
             
-        }   
+        }
+        public override string ToString()
+        {
+            
+            return string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}",
+                Number, 
+                DepartureFrom,
+                ArrivalIn,
+                Departure.TimeOfDay.ToString("hh':'mm"),
+                Departure.ToString().Split(' ')[0],
+                CountPlaces,
+                Program.GetStations(StopStation));
+        }
+
+        public void WriteInFile(string path)
+        {
+            using (StreamWriter wr = new StreamWriter(path, true))
+            {
+                wr.WriteLine(ToString());
+                wr.Close();
+            }
+        }
     }
 }

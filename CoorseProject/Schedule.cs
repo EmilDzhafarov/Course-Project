@@ -30,24 +30,34 @@ namespace CoorseProject
 
         private void Schedule_Load(object sender, EventArgs e)
         {
+            FirstFunc();
+
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Тема курсового проекта: Касса аэрофлота\nРазработчик: ст.группы ПИ-15-2 Джафаров Эмиль\nСсылка на GitHub: https://github.com/EmilDzhafarov/Coorse-Project.git \nЭлектронная почта: emil.dzhafarov@nure.ua\nВерсия программы: 1.0", "О программе");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FirstFunc();
+        }
+        public void FirstFunc()
+        {
             foreach (DataGridViewColumn colum in dataGridView1.Columns)
             {
                 colum.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             dataGridView1.Rows.Clear();
             DateTime now = DateTime.Now;
-
-            try
+            if (System.IO.File.Exists("Flights.txt") == false)
             {
+                System.IO.FileStream file = new System.IO.FileStream("Flights.txt",System.IO.FileMode.Create);
+                file.Close();
+            }
+            try {
                 FlightCollection list = new FlightCollection("Flights.txt");
-
-                bool check = false;
-
-                if (list.Count == 0)
-                {
-                    check = true;
-                }
-
                 list.SortingByDays();
 
                 for (int i = list.Count - 1; i >= 0; i--)
@@ -60,22 +70,35 @@ namespace CoorseProject
                                                  list[i].ArrivalIn,
                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
                                                  list[i].Departure.Date.ToString().Split(' ')[0],
-                                                 list.GetStations(list[i].StopStation)
+                                                 Program.GetStations(list[i].StopStation)
                                                  );
                     }
                 }
-                if (check) // Проверка на существование рейсов в базе данных
-                {
-                    MessageBox.Show("Не найдено соответствующего рейса");
-                    return;
-                }
             }
-            catch (Exception)
+           
+            catch(FormatException)
             {
-                MessageBox.Show("Ошибка базы данных. Попробуйте позже.");
-                this.Close();
+                
+            }
+            catch(IndexOutOfRangeException)
+            {
+                
+            }
+            catch (ArgumentNullException)
+            {
+
             }
 
+        }
+        private void выходToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void добавитьРейсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddFlight ob = new AddFlight();
+            ob.Show();
         }
     }
 }

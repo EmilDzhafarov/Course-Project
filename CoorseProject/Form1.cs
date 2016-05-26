@@ -28,32 +28,37 @@ namespace CoorseProject
 
         private void button2Ok_Click(object sender, EventArgs e)
         {
+            try
+            { 
+
             string Name = textBox1Name.Text;
             string Surname = textBox2Surname.Text;
             string Middlename = textBox3Middlename.Text;
-
+            if (String.IsNullOrWhiteSpace(Name) == true || String.IsNullOrWhiteSpace(Surname) == true || String.IsNullOrWhiteSpace(Middlename) == true)
+            {
+                    MessageBox.Show("Введите регистрационные данные!","Оповещение");
+                    return;
+            }
             if (dataGridView1.RowCount == 0)
             {
-                MessageBox.Show("Не найдено соответствующего рейса!");
+                MessageBox.Show("Не найдено соответствующего рейса!","Оповещение");
                 return;
             }
-
+            
             string DepartureFrom = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             string ArrivalIn = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             string Route = DepartureFrom + "-" + ArrivalIn;
             decimal count = numericUpDown1Count.Value;
             decimal copy = count;
-            try
-            {
-                Passenger user = new Passenger(Name, Surname, Middlename, Route);
-                FlightCollection arr = new FlightCollection("Flights.txt",DepartureFrom,ArrivalIn);
-                bool check = false; // Булевая переменная, которая становится "true" если был найден соответственный рейс, в который добавлено определённое количество пассажиров
-                int copyNumber = 0; // Переменная, в которую записывается номер рейса, на который совершается регистрация
+            Passenger user = new Passenger(Name, Surname, Middlename);
+            FlightCollection arr = new FlightCollection("Flights.txt",DepartureFrom,ArrivalIn);
+            bool check = false; // Булевая переменная, которая становится "true" если был найден соответственный рейс, в который добавлено определённое количество пассажиров
+            int copyNumber = 0; // Переменная, в которую записывается номер рейса, на который совершается регистрация
                 
                 for (int i = 0; i < arr.Count; i++)
                 {
-                    if (arr[i].Number == Convert.ToInt32(num) && arr[i].DepartureFrom + "-" + arr[i].ArrivalIn == user.Route)
+                    if (arr[i].Number == Convert.ToInt32(num) && arr[i].DepartureFrom + "-" + arr[i].ArrivalIn == Route)
                     {
                         copyNumber = arr[i].Number;
                         check = true;
@@ -72,13 +77,14 @@ namespace CoorseProject
                         user.WriteInFile(copyNumber); ;
                         copy--;
                     }
-                    MessageBox.Show("Забронировано! Хорошего полёта!");
+                    MessageBox.Show("Пассажир добавлен!","Оповещение");
                     this.Close();
                 }
             }
+           
             catch (Exception z)
             {
-                MessageBox.Show(z.Message);
+                MessageBox.Show(z.Message,"Оповещение");
             }
             
         }
@@ -89,6 +95,11 @@ namespace CoorseProject
            dataGridView1.Rows.Clear();
            string dep = textBox4DepartureFrom.Text;
            string arrival = textBox5arrivalIn.Text;
+           if (dep == "" || arrival == "")
+           {
+                MessageBox.Show("Укажите маршрут!","Оповещение");
+                return;
+           }
            DateTime now = DateTime.Now;
         
             try
@@ -114,19 +125,19 @@ namespace CoorseProject
                                                  list[i].ArrivalIn,
                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
                                                  list[i].Departure.Date.ToString().Split(' ')[0],
-                                                 list.GetStations(list[i].StopStation)
+                                                 Program.GetStations(list[i].StopStation)
                                                  );
                     }
                 }
                 if (check) // Проверка на существование рейсов в базе данных
                 {
-                    MessageBox.Show("Не найдено соответствующего рейса");
+                    MessageBox.Show("Не найдено соответствующего рейса","Оповещение");
                     return;
                 }
             }
             catch(Exception)
             {
-                MessageBox.Show("Ошибка базы данных. Попробуйте позже.");
+                MessageBox.Show("Ошибка базы данных. Попробуйте позже.","Оповещение");
                 this.Close();
             }
 

@@ -49,43 +49,27 @@ namespace CoorseProject
 
         public FlightCollection(string path)
         {
-            StreamReader flights = new StreamReader(path);
-            while (!flights.EndOfStream)
+            using (StreamReader flights = new StreamReader(path))
             {
-                string s = flights.ReadLine();
-                string[] arr = s.Split('|');
-                if (arr.Length != 7)
+                while (!flights.EndOfStream)
                 {
-                    throw new Exception();
+                    string s = flights.ReadLine();
+                    string[] arr = s.Split('|');
+                    if (arr.Length != 7)
+                    {
+                        throw new IndexOutOfRangeException();
+                    }
+                    if (String.IsNullOrWhiteSpace(arr[1]) || String.IsNullOrWhiteSpace(arr[2]) || String.IsNullOrWhiteSpace(arr[3])
+                        || String.IsNullOrWhiteSpace(arr[4]))
+                    {
+                        throw new ArgumentNullException();
+                    }
+                    this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
                 }
-                
-               this.Add(new Flight(Convert.ToInt32(arr[0]), arr[1], arr[2], arr[3], arr[4], Convert.ToInt32(arr[5]), arr[6]));
+                flights.Close();
             }
-            flights.Close();
         }
-
-        public string GetStations(string[] str) // Метод, который будет использован для вывода промежуточных станций 
-        {                                       //(Промежуточные станции - это массив строк)
-            string rez = "";
-            if (str.Length == 0)
-            {
-                return rez;
-            }
-            if (str.Length == 1)
-            {
-                rez = str[0];
-            }
-            else
-            {
-                for (int i = 0; i < str.Length; i++)
-                {
-                    if (i == str.Length - 1)
-                        rez += str[i];
-                    rez += str[i] + ",";
-                }
-            }
-            return rez;
-        }
+        
         public void SortingByDays() // Метод сортировки пузырьком рейсов по отправлению. 
         {                           
             for (int i = 0; i < this.Count - 1; i++)
