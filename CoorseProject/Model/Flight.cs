@@ -21,7 +21,7 @@ namespace CoorseProject
             _arrival = Convert.ToDateTime(arrday + " " + arrtime);
             if (DepartureFrom == "" || ArrivalIn == "")
             {
-                throw new Exception("Укажите маршрут!");
+                throw new Exception("Укажите полный маршрут!");
             }
             if (_departure >= _arrival)
             {
@@ -108,7 +108,7 @@ namespace CoorseProject
                 file.Close();
             }
         }
-        public bool AddPassenger(Passenger user, decimal count) // Метод для добавления пассажира на рейс
+        public void AddPassenger(Passenger user, decimal count) // Метод для добавления пассажира на рейс
         {
             if (count <= this.FreePlaces)
             {
@@ -117,10 +117,12 @@ namespace CoorseProject
                     this.ListOfPassengers.AddPassenger(user);
                     user.WriteInFile(this.Number);
                     count--;
-                }
-                return true;
+                }               
             }
-            return false;
+            else
+            {
+                throw new Exception("Недостаточно свободных мест!");
+            }
         }
 
         public void AddStopStation(string stopStat) // Метод для добавления промежуточных станций

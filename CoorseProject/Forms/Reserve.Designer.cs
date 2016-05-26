@@ -49,7 +49,6 @@
             this.numericUpDown1Count = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.FlightTable = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FreePlaces = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartureFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +60,6 @@
             this.StopStations = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlightTable)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +67,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(17, 22);
+            this.label1.Location = new System.Drawing.Point(32, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 16);
             this.label1.TabIndex = 1;
@@ -80,7 +78,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(17, 61);
+            this.label2.Location = new System.Drawing.Point(32, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 2;
@@ -91,7 +89,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(17, 100);
+            this.label3.Location = new System.Drawing.Point(32, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 16);
             this.label3.TabIndex = 3;
@@ -102,7 +100,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(366, 67);
+            this.label4.Location = new System.Drawing.Point(452, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 16);
             this.label4.TabIndex = 4;
@@ -113,7 +111,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(366, 102);
+            this.label5.Location = new System.Drawing.Point(452, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 5;
@@ -122,7 +120,7 @@
             // textBox1Name
             // 
             this.textBox1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1Name.Location = new System.Drawing.Point(115, 19);
+            this.textBox1Name.Location = new System.Drawing.Point(130, 64);
             this.textBox1Name.Name = "textBox1Name";
             this.textBox1Name.Size = new System.Drawing.Size(190, 22);
             this.textBox1Name.TabIndex = 1;
@@ -130,7 +128,7 @@
             // textBox2Surname
             // 
             this.textBox2Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2Surname.Location = new System.Drawing.Point(115, 58);
+            this.textBox2Surname.Location = new System.Drawing.Point(130, 102);
             this.textBox2Surname.Name = "textBox2Surname";
             this.textBox2Surname.Size = new System.Drawing.Size(190, 22);
             this.textBox2Surname.TabIndex = 2;
@@ -138,7 +136,7 @@
             // textBox3Middlename
             // 
             this.textBox3Middlename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3Middlename.Location = new System.Drawing.Point(115, 97);
+            this.textBox3Middlename.Location = new System.Drawing.Point(130, 144);
             this.textBox3Middlename.Name = "textBox3Middlename";
             this.textBox3Middlename.Size = new System.Drawing.Size(190, 22);
             this.textBox3Middlename.TabIndex = 3;
@@ -146,7 +144,7 @@
             // textBox4DepartureFrom
             // 
             this.textBox4DepartureFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4DepartureFrom.Location = new System.Drawing.Point(455, 61);
+            this.textBox4DepartureFrom.Location = new System.Drawing.Point(538, 61);
             this.textBox4DepartureFrom.Name = "textBox4DepartureFrom";
             this.textBox4DepartureFrom.Size = new System.Drawing.Size(195, 22);
             this.textBox4DepartureFrom.TabIndex = 4;
@@ -154,7 +152,7 @@
             // textBox5arrivalIn
             // 
             this.textBox5arrivalIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5arrivalIn.Location = new System.Drawing.Point(455, 99);
+            this.textBox5arrivalIn.Location = new System.Drawing.Point(538, 96);
             this.textBox5arrivalIn.Name = "textBox5arrivalIn";
             this.textBox5arrivalIn.Size = new System.Drawing.Size(195, 22);
             this.textBox5arrivalIn.TabIndex = 5;
@@ -163,9 +161,9 @@
             // 
             this.SearchFlight.BackColor = System.Drawing.SystemColors.Control;
             this.SearchFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchFlight.Location = new System.Drawing.Point(369, 134);
+            this.SearchFlight.Location = new System.Drawing.Point(455, 135);
             this.SearchFlight.Name = "SearchFlight";
-            this.SearchFlight.Size = new System.Drawing.Size(76, 32);
+            this.SearchFlight.Size = new System.Drawing.Size(65, 30);
             this.SearchFlight.TabIndex = 6;
             this.SearchFlight.Text = "Найти";
             this.SearchFlight.UseVisualStyleBackColor = false;
@@ -175,7 +173,7 @@
             // 
             this.button2Ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2Ok.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2Ok.Location = new System.Drawing.Point(610, 381);
+            this.button2Ok.Location = new System.Drawing.Point(701, 369);
             this.button2Ok.Name = "button2Ok";
             this.button2Ok.Size = new System.Drawing.Size(71, 30);
             this.button2Ok.TabIndex = 9;
@@ -188,7 +186,7 @@
             this.button3Reset.BackColor = System.Drawing.SystemColors.Control;
             this.button3Reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3Reset.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3Reset.Location = new System.Drawing.Point(531, 381);
+            this.button3Reset.Location = new System.Drawing.Point(622, 369);
             this.button3Reset.Name = "button3Reset";
             this.button3Reset.Size = new System.Drawing.Size(73, 30);
             this.button3Reset.TabIndex = 8;
@@ -201,7 +199,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(9, 389);
+            this.label6.Location = new System.Drawing.Point(9, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 16);
             this.label6.TabIndex = 15;
@@ -210,7 +208,7 @@
             // numericUpDown1Count
             // 
             this.numericUpDown1Count.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1Count.Location = new System.Drawing.Point(159, 387);
+            this.numericUpDown1Count.Location = new System.Drawing.Point(159, 375);
             this.numericUpDown1Count.Maximum = new decimal(new int[] {
             1569325056,
             23283064,
@@ -235,7 +233,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label7.Location = new System.Drawing.Point(216, 20);
+            this.label7.Location = new System.Drawing.Point(277, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(243, 24);
             this.label7.TabIndex = 17;
@@ -290,24 +288,8 @@
             this.FlightTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.FlightTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.FlightTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FlightTable.Size = new System.Drawing.Size(666, 164);
+            this.FlightTable.Size = new System.Drawing.Size(757, 148);
             this.FlightTable.TabIndex = 18;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox1.Controls.Add(this.textBox1Name);
-            this.groupBox1.Controls.Add(this.textBox2Surname);
-            this.groupBox1.Controls.Add(this.textBox3Middlename);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.groupBox1.Location = new System.Drawing.Point(15, 47);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 138);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
             // 
             // Number
             // 
@@ -386,10 +368,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(692, 425);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.Controls.Add(this.textBox3Middlename);
+            this.Controls.Add(this.textBox2Surname);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1Name);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.FlightTable);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1Count);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button3Reset);
@@ -407,8 +394,6 @@
             this.Load += new System.EventHandler(this.Reserve_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlightTable)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +417,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1Count;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView FlightTable;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn FreePlaces;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartureFrom;

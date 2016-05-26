@@ -56,7 +56,10 @@ namespace CoorseProject
             {
                 for (int i = 0; i < str.Length - 1; i++)
                 {
-                    rez += str[i] + ",";
+                    if (str[i] != "")
+                    {
+                        rez += str[i] + ",";
+                    }
                 }
                 rez += str[str.Length - 1];
                 return rez;

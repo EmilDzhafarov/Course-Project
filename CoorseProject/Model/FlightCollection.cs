@@ -35,13 +35,13 @@ namespace CoorseProject
                         if (Convert.ToDateTime(arr[3] + " " + arr[4]) >= now &&
                            (arr[1] == dep && arr[2] == arrival || arr[1] == dep && arr[8].IndexOf(arrival) != -1))
                         {
-                            this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],arr[4], arr[5], arr[6],Convert.ToInt32(arr[7]), arr[8].Split(',')));
+                            this.Add(new Flight(arr[0], dep, arrival, arr[3],arr[4], arr[5], arr[6], Convert.ToInt32(arr[7]), arr[8].Split(',')));
                         }
                     }
 
                     else if ((dep == null || arrival == null) && Convert.ToDateTime(arr[3] + " " + arr[4]) >= now)
                     {
-                          this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],arr[4], arr[5], arr[6],Convert.ToInt32(arr[7]), arr[8].Split(',')));
+                          this.Add(new Flight(arr[0], arr[1], arr[2], arr[3],arr[4], arr[5], arr[6], Convert.ToInt32(arr[7]), arr[8].Split(',')));
                     }
                    
                 }
@@ -69,9 +69,9 @@ namespace CoorseProject
         {
             using (StreamWriter wr = new StreamWriter("Flights.txt", true))
             {
-                for (int i = 0; i < this.Count; i++)
+                foreach(Flight ob in this)
                 {
-                    wr.WriteLine(this[i].ToString());
+                    wr.WriteLine(ob.ToString());
                 }
                 wr.Close();
             }
@@ -86,11 +86,11 @@ namespace CoorseProject
         }
         public Flight FindByNumber(int num) // Метод, который находит заданный по номеру рейс
         {
-            for (int i = 0; i < this.Count; i++)
+            foreach(Flight ob in this)
             {
-                if (this[i].Number == num)
+                if (ob.Number == num)
                 {
-                    return this[i];
+                    return ob;
                 }
             }
             return null;
@@ -114,22 +114,22 @@ namespace CoorseProject
             {
                 this.Remove(Current);
 
-                if (System.IO.File.Exists("Passengers\\" + num + "Passengers.txt") == true)
+                if (File.Exists("Passengers\\" + num + "Passengers.txt") == true)
                 {
-                    System.IO.File.Delete("Passengers\\" + num + "Passengers.txt");
+                    File.Delete("Passengers\\" + num + "Passengers.txt");
                 }
             }
         }
-        public void CheckFile()
+        public void CheckFile() // Метод для проверки на существование файла со всеми рейсами
         {
-            if (System.IO.File.Exists("Flights.txt") == false)
+            if (File.Exists("Flights.txt") == false)
             {
-                if (System.IO.Directory.Exists("Passengers"))
+                if (Directory.Exists("Passengers"))
                 {
-                    System.IO.Directory.Delete("Passengers", true);
+                    Directory.Delete("Passengers", true);
                 }
 
-                System.IO.FileStream file = new System.IO.FileStream("Flights.txt", System.IO.FileMode.Create);
+                FileStream file = new FileStream("Flights.txt",FileMode.Create);
                 file.Close();
             }
         }

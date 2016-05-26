@@ -25,7 +25,7 @@ namespace CoorseProject
             private void Info_Load(object sender, EventArgs e)
             {
 
-                foreach (DataGridViewColumn colum in dataGridView1.Columns)
+                foreach (DataGridViewColumn colum in ListOfPassengers.Columns)
                 {
                     colum.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
@@ -48,7 +48,7 @@ namespace CoorseProject
 
                 for (int i = 0; i < Current.ListOfPassengers.Count; i++)
                 {
-                    dataGridView1.Rows.Add(Current.ListOfPassengers[i].Name,
+                    ListOfPassengers.Rows.Add(Current.ListOfPassengers[i].Name,
                                           Current.ListOfPassengers[i].Surname,
                                           Current.ListOfPassengers[i].MiddleName);
                 }

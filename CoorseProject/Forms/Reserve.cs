@@ -41,17 +41,11 @@ namespace CoorseProject
                 FlightCollection arr = new FlightCollection();
 
                 Flight Current = arr.FindByNumber(Convert.ToInt32(num));
-                if (Current.AddPassenger(user, count) == true)
-                {
-                    MessageBox.Show("Пассажир добавлен!", "Оповещение");
-                    this.Close();
-                    Program.MainForm.OnLoadFuction();
-                }
-                else
-                {
-                    MessageBox.Show("Нет такого количества мест!", "Оповещение");
-                    return;
-                }
+                Current.AddPassenger(user, count);
+               
+                MessageBox.Show("Пассажир добавлен!", "Оповещение");
+                this.Close();
+                Program.MainForm.OnLoadFuction();
             }
             catch (NullReferenceException)
             {
@@ -65,40 +59,44 @@ namespace CoorseProject
 
         private void SearchFlight_Click(object sender, EventArgs e)
         {
-            FlightTable.Rows.Clear();
-            string dep = textBox4DepartureFrom.Text;
-            string arrival = textBox5arrivalIn.Text;
-            DateTime now = DateTime.Now;
-            FlightCollection list = new FlightCollection(dep, arrival);
-            bool check = false;
-
-            if (list.Count == 0)
+            try
             {
-                check = true;
-            }
-            list.SortingByDays();
+                FlightTable.Rows.Clear();
+                string dep = Program.RemoveSpaces(textBox4DepartureFrom.Text);
+                string arrival = Program.RemoveSpaces(textBox5arrivalIn.Text);
 
-            for (int i = list.Count - 1; i >= 0; i--)
-            {
-                if (list[i].Departure > now)
+                DateTime now = DateTime.Now;
+                FlightCollection list = new FlightCollection(dep, arrival);
+
+                list.SortingByDays();
+
+                for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    FlightTable.Rows.Add(list[i].Number,
-                                              list[i].FreePlaces,
-                                              list[i].DepartureFrom,
-                                              list[i].ArrivalIn,
-                                              list[i].Departure.TimeOfDay.ToString("hh':'mm"),
-                                              list[i].Departure.Date.ToString().Split(' ')[0],
-                                              list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
-                                              list[i].Arrival.Date.ToString().Split(' ')[0],
-                                              Program.GetStopStations(list[i].StopStation)
-                                              );
+                    if (list[i].Departure > now)
+                    {
+                        FlightTable.Rows.Add(list[i].Number,
+                                                  list[i].FreePlaces,
+                                                  list[i].DepartureFrom,
+                                                  list[i].ArrivalIn,
+                                                  list[i].Departure.TimeOfDay.ToString("hh':'mm"),
+                                                  list[i].Departure.Date.ToString().Split(' ')[0],
+                                                  list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
+                                                  list[i].Arrival.Date.ToString().Split(' ')[0],
+                                                  Program.GetStopStations(list[i].StopStation)
+                                                  );
+                    }
+                }
+                if (FlightTable.RowCount == 0) // Проверка на существование рейсов в базе данных
+                {
+                    MessageBox.Show("Не найдено соответствующего рейса", "Оповещение");
+                    return;
                 }
             }
-            if (check || FlightTable.RowCount == 0) // Проверка на существование рейсов в базе данных
+            catch(Exception ex)
             {
-                MessageBox.Show("Не найдено соответствующего рейса", "Оповещение");
-                return;
+                MessageBox.Show(ex.Message);
             }
+           
         }
 
         private void button3Reset_Click(object sender, EventArgs e)

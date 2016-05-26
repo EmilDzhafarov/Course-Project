@@ -53,10 +53,8 @@
             this.button2EditFlight = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button5InfomOfFlight = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,7 +65,7 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(759, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,7 +159,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(739, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 246);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -251,7 +249,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(667, 365);
+            this.button1.Location = new System.Drawing.Point(692, 364);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 29);
             this.button1.TabIndex = 13;
@@ -264,7 +262,7 @@
             this.button3DeleteFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3DeleteFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3DeleteFlight.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3DeleteFlight.Location = new System.Drawing.Point(119, 11);
+            this.button3DeleteFlight.Location = new System.Drawing.Point(125, 364);
             this.button3DeleteFlight.Name = "button3DeleteFlight";
             this.button3DeleteFlight.Size = new System.Drawing.Size(74, 29);
             this.button3DeleteFlight.TabIndex = 20;
@@ -277,7 +275,7 @@
             this.button2EditFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2EditFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2EditFlight.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2EditFlight.Location = new System.Drawing.Point(6, 11);
+            this.button2EditFlight.Location = new System.Drawing.Point(12, 364);
             this.button2EditFlight.Name = "button2EditFlight";
             this.button2EditFlight.Size = new System.Drawing.Size(107, 29);
             this.button2EditFlight.TabIndex = 22;
@@ -291,7 +289,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(268, 41);
+            this.label1.Location = new System.Drawing.Point(281, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 24);
             this.label1.TabIndex = 23;
@@ -302,7 +300,7 @@
             this.button5InfomOfFlight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button5InfomOfFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5InfomOfFlight.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5InfomOfFlight.Location = new System.Drawing.Point(199, 11);
+            this.button5InfomOfFlight.Location = new System.Drawing.Point(205, 364);
             this.button5InfomOfFlight.Name = "button5InfomOfFlight";
             this.button5InfomOfFlight.Size = new System.Drawing.Size(88, 29);
             this.button5InfomOfFlight.TabIndex = 24;
@@ -310,40 +308,27 @@
             this.button5InfomOfFlight.UseVisualStyleBackColor = true;
             this.button5InfomOfFlight.Click += new System.EventHandler(this.button5_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox1.Controls.Add(this.button2EditFlight);
-            this.groupBox1.Controls.Add(this.button5InfomOfFlight);
-            this.groupBox1.Controls.Add(this.button3DeleteFlight);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox1.Location = new System.Drawing.Point(8, 354);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(298, 46);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            // 
             // Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(759, 412);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.Controls.Add(this.button2EditFlight);
+            this.Controls.Add(this.button3DeleteFlight);
+            this.Controls.Add(this.button5InfomOfFlight);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(676, 451);
+            this.MinimumSize = new System.Drawing.Size(800, 450);
             this.Name = "Schedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Schedule_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +358,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn StopStations;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

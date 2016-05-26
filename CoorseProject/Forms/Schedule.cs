@@ -113,6 +113,7 @@ namespace CoorseProject
         {
             try
             {
+
                 string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 Info ob = new Info(num);
                 ob.Show();

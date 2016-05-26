@@ -36,9 +36,12 @@ namespace CoorseProject
                 string depTime = numericUpDown1DepHour.Value + ":" + numericUpDown2DepMinutes.Value;
                 string arrTime = numericUpDown1ArrHours.Value + ":" + numericUpDown1ArrMinutes.Value;
 
-                string StopStation = textBox3stopstat.Text;
+                string StopStation = Program.RemoveSpaces(textBox3stopstat.Text);
 
-                Current.AddStopStation(StopStation);
+                if (StopStation != "")
+                {
+                    Current.AddStopStation(StopStation);
+                }
 
                 Current.Departure = Convert.ToDateTime(depDay + " " + depTime);
                 Current.Arrival = Convert.ToDateTime(arrDay + " " + arrTime);

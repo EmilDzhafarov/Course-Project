@@ -27,7 +27,7 @@ namespace CoorseProject
         {
             try
             {
-                string Number = textBox1Number.Text;
+                string Number = Program.RemoveSpaces(textBox1Number.Text);
                 string depDay = dateTimePicker1DepartureDay.Value.Day.ToString() + "."
                           + dateTimePicker1DepartureDay.Value.Month.ToString() + "."
                           + dateTimePicker1DepartureDay.Value.Year.ToString();
@@ -36,7 +36,8 @@ namespace CoorseProject
                           + dateTimePicker2ArrivalDay.Value.Year.ToString();
                 string depTime = numericUpDown4DepHours.Value + ":" + numericUpDown5DepMinutes.Value;
                 string arrTime = numericUpDown1ArrHours.Value + ":" + numericUpDown2ArrMinutes.Value;
-                string[] StopStations = textBox1StopStations.Text.Split(',');
+                string[] StopStations = Program.RemoveSpaces(textBox1StopStations.Text).Split(',');
+              
                 string DepartureFrom = Program.RemoveSpaces(textBox1DepartureFrom.Text);
                 string ArrivalIn = Program.RemoveSpaces(textBox1ArrivalIn.Text);
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
@@ -44,7 +45,7 @@ namespace CoorseProject
                 Flight newFlight;
                 FlightCollection file = new FlightCollection();
                 Flight Current = file.FindByNumber(Convert.ToInt32(Number));
-                if (Convert.ToDateTime(depDay + " " + depTime) < DateTime.Now)
+                if (Convert.ToDateTime(depDay + " " + depTime) <= DateTime.Now)
                 {
                     MessageBox.Show("Время и дата отправления должны быть больше текущих.", "Оповещение");
                     return;

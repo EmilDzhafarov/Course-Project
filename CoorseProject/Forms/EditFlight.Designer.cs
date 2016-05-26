@@ -96,10 +96,10 @@ namespace CoorseProject
             // dateTimePicker1DepartureDay
             // 
             this.dateTimePicker1DepartureDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(124, 178);
+            this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(137, 178);
             this.dateTimePicker1DepartureDay.MinDate = System.DateTime.Now;
             this.dateTimePicker1DepartureDay.Name = "dateTimePicker1DepartureDay";
-            this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(167, 22);
             this.dateTimePicker1DepartureDay.TabIndex = 7;
             this.dateTimePicker1DepartureDay.Value = System.DateTime.Now;
             // 
@@ -131,14 +131,14 @@ namespace CoorseProject
             // 
             this.textBox3stopstat.Location = new System.Drawing.Point(203, 333);
             this.textBox3stopstat.Name = "textBox3stopstat";
-            this.textBox3stopstat.Size = new System.Drawing.Size(143, 20);
+            this.textBox3stopstat.Size = new System.Drawing.Size(169, 20);
             this.textBox3stopstat.TabIndex = 10;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(262, 379);
+            this.button1.Location = new System.Drawing.Point(288, 373);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 26);
             this.button1.TabIndex = 11;
@@ -150,7 +150,7 @@ namespace CoorseProject
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(180, 379);
+            this.button2.Location = new System.Drawing.Point(206, 373);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 26);
             this.button2.TabIndex = 12;
@@ -173,7 +173,7 @@ namespace CoorseProject
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label2.Location = new System.Drawing.Point(52, 25);
+            this.label2.Location = new System.Drawing.Point(69, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(239, 24);
             this.label2.TabIndex = 14;
@@ -207,7 +207,7 @@ namespace CoorseProject
             this.textBox1dep.Enabled = false;
             this.textBox1dep.Location = new System.Drawing.Point(180, 113);
             this.textBox1dep.Name = "textBox1dep";
-            this.textBox1dep.Size = new System.Drawing.Size(145, 20);
+            this.textBox1dep.Size = new System.Drawing.Size(166, 20);
             this.textBox1dep.TabIndex = 17;
             // 
             // textBox1arr
@@ -216,7 +216,7 @@ namespace CoorseProject
             this.textBox1arr.Enabled = false;
             this.textBox1arr.Location = new System.Drawing.Point(180, 144);
             this.textBox1arr.Name = "textBox1arr";
-            this.textBox1arr.Size = new System.Drawing.Size(145, 20);
+            this.textBox1arr.Size = new System.Drawing.Size(166, 20);
             this.textBox1arr.TabIndex = 18;
             // 
             // label8
@@ -234,9 +234,9 @@ namespace CoorseProject
             // 
             this.textBox1num.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1num.Enabled = false;
-            this.textBox1num.Location = new System.Drawing.Point(124, 81);
+            this.textBox1num.Location = new System.Drawing.Point(145, 81);
             this.textBox1num.Name = "textBox1num";
-            this.textBox1num.Size = new System.Drawing.Size(145, 20);
+            this.textBox1num.Size = new System.Drawing.Size(167, 20);
             this.textBox1num.TabIndex = 20;
             // 
             // label9
@@ -256,7 +256,7 @@ namespace CoorseProject
             this.dateTimePicker2arrivalDay.Location = new System.Drawing.Point(137, 211);
             this.dateTimePicker2arrivalDay.MinDate = System.DateTime.Now;
             this.dateTimePicker2arrivalDay.Name = "dateTimePicker2arrivalDay";
-            this.dateTimePicker2arrivalDay.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker2arrivalDay.Size = new System.Drawing.Size(171, 22);
             this.dateTimePicker2arrivalDay.TabIndex = 22;
             this.dateTimePicker2arrivalDay.Value = System.DateTime.Now;
             // 
@@ -310,7 +310,7 @@ namespace CoorseProject
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(358, 417);
+            this.ClientSize = new System.Drawing.Size(384, 411);
             this.Controls.Add(this.numericUpDown1ArrMinutes);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.numericUpDown1ArrHours);
