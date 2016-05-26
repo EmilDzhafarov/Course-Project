@@ -33,12 +33,12 @@ namespace CoorseProject
             try
             {
                 int Number = Convert.ToInt32(textBox1Number.Text);
-                string day = numericUpDown2day.Value + "." + numericUpDown1month.Value + "." + numericUpDown1years.Value;
-                string time = numericUpDown2Hours.Value + ":" + numericUpDown2Minutes.Value;
+                string day = numericUpDown1day.Value + "." + numericUpDown2month.Value + "." + numericUpDown3years.Value;
+                string time = numericUpDown4Hours.Value + ":" + numericUpDown5Minutes.Value;
                 string[] StopStations = textBox1StopStations.Text.Split(',');
                 string DepartureFrom = textBox1DepartureFrom.Text;
                 string ArrivalIn = textBox1ArrivalIn.Text;
-                int countPlaces = Convert.ToInt32(numericUpDown1countPlaces.Value);
+                int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
                 if (DepartureFrom == "" || ArrivalIn == "")
                 {
                     MessageBox.Show("Укажите маршрут!", "Оповещение");
@@ -61,7 +61,7 @@ namespace CoorseProject
                     return;
                 }
                 newFlight.WriteInFile("Flights.txt");
-                MessageBox.Show("Рейс успешно добавлен!", "Оповещение");
+                MessageBox.Show("Рейс успешно добавлен! Обновите расписание.", "Оповещение");
                 this.Close();
             }
             catch(Exception)

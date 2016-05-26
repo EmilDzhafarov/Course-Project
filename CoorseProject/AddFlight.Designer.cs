@@ -38,22 +38,22 @@
             this.textBox1DepartureFrom = new System.Windows.Forms.TextBox();
             this.textBox1ArrivalIn = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1countPlaces = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2Hours = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2Minutes = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6countPlaces = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown4Hours = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown5Minutes = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1StopStations = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1month = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2day = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1years = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1countPlaces)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2Hours)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2Minutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1month)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2day)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1years)).BeginInit();
+            this.numericUpDown2month = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1day = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3years = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6countPlaces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4Hours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5Minutes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2month)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1day)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3years)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,9 +107,9 @@
             this.label5.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label5.Location = new System.Drawing.Point(42, 206);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 18);
+            this.label5.Size = new System.Drawing.Size(120, 18);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Время полёта";
+            this.label5.Text = "Время вылета";
             // 
             // label6
             // 
@@ -153,46 +153,66 @@
             this.label7.TabIndex = 12;
             this.label7.Text = ":";
             // 
-            // numericUpDown1countPlaces
+            // numericUpDown6countPlaces
             // 
-            this.numericUpDown1countPlaces.Location = new System.Drawing.Point(261, 242);
-            this.numericUpDown1countPlaces.Minimum = new decimal(new int[] {
-            5,
+            this.numericUpDown6countPlaces.Location = new System.Drawing.Point(261, 242);
+            this.numericUpDown6countPlaces.Minimum = new decimal(new int[] {
+            10,
             0,
             0,
             0});
-            this.numericUpDown1countPlaces.Name = "numericUpDown1countPlaces";
-            this.numericUpDown1countPlaces.Size = new System.Drawing.Size(43, 22);
-            this.numericUpDown1countPlaces.TabIndex = 13;
-            this.numericUpDown1countPlaces.Value = new decimal(new int[] {
-            5,
+            this.numericUpDown6countPlaces.Name = "numericUpDown6countPlaces";
+            this.numericUpDown6countPlaces.Size = new System.Drawing.Size(43, 22);
+            this.numericUpDown6countPlaces.TabIndex = 13;
+            this.numericUpDown6countPlaces.Value = new decimal(new int[] {
+            10,
             0,
             0,
             0});
             // 
-            // numericUpDown2Hours
+            // numericUpDown4Hours
             // 
-            this.numericUpDown2Hours.Location = new System.Drawing.Point(166, 202);
-            this.numericUpDown2Hours.Maximum = new decimal(new int[] {
+            this.numericUpDown4Hours.Location = new System.Drawing.Point(166, 202);
+            this.numericUpDown4Hours.Maximum = new decimal(new int[] {
             23,
             0,
             0,
             0});
-            this.numericUpDown2Hours.Name = "numericUpDown2Hours";
-            this.numericUpDown2Hours.Size = new System.Drawing.Size(43, 22);
-            this.numericUpDown2Hours.TabIndex = 14;
+            this.numericUpDown4Hours.Minimum = new decimal(new int[] {
+            System.DateTime.Now.Hour,
+            0,
+            0,
+            0});
+            this.numericUpDown4Hours.Name = "numericUpDown4Hours";
+            this.numericUpDown4Hours.Size = new System.Drawing.Size(43, 22);
+            this.numericUpDown4Hours.TabIndex = 14;
+            this.numericUpDown4Hours.Value = new decimal(new int[] {
+            System.DateTime.Now.Hour,
+            0,
+            0,
+            0});
             // 
-            // numericUpDown2Minutes
+            // numericUpDown5Minutes
             // 
-            this.numericUpDown2Minutes.Location = new System.Drawing.Point(232, 202);
-            this.numericUpDown2Minutes.Maximum = new decimal(new int[] {
+            this.numericUpDown5Minutes.Location = new System.Drawing.Point(232, 202);
+            this.numericUpDown5Minutes.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.numericUpDown2Minutes.Name = "numericUpDown2Minutes";
-            this.numericUpDown2Minutes.Size = new System.Drawing.Size(43, 22);
-            this.numericUpDown2Minutes.TabIndex = 15;
+            this.numericUpDown5Minutes.Minimum = new decimal(new int[] {
+            System.DateTime.Now.Minute,
+            0,
+            0,
+            0});
+            this.numericUpDown5Minutes.Name = "numericUpDown5Minutes";
+            this.numericUpDown5Minutes.Size = new System.Drawing.Size(43, 22);
+            this.numericUpDown5Minutes.TabIndex = 15;
+            this.numericUpDown5Minutes.Value = new decimal(new int[] {
+            System.DateTime.Now.Minute,
+            0,
+            0,
+            0});
             // 
             // label8
             // 
@@ -236,68 +256,68 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // numericUpDown1month
+            // numericUpDown2month
             // 
-            this.numericUpDown1month.Location = new System.Drawing.Point(232, 162);
-            this.numericUpDown1month.Maximum = new decimal(new int[] {
+            this.numericUpDown2month.Location = new System.Drawing.Point(232, 162);
+            this.numericUpDown2month.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDown1month.Minimum = new decimal(new int[] {
-            1,
+            this.numericUpDown2month.Minimum = new decimal(new int[] {
+            System.DateTime.Now.Month,
             0,
             0,
             0});
-            this.numericUpDown1month.Name = "numericUpDown1month";
-            this.numericUpDown1month.Size = new System.Drawing.Size(43, 22);
-            this.numericUpDown1month.TabIndex = 20;
-            this.numericUpDown1month.Value = new decimal(new int[] {
-            1,
+            this.numericUpDown2month.Name = "numericUpDown2month";
+            this.numericUpDown2month.Size = new System.Drawing.Size(43, 22);
+            this.numericUpDown2month.TabIndex = 20;
+            this.numericUpDown2month.Value = new decimal(new int[] {
+            System.DateTime.Now.Month,
             0,
             0,
             0});
             // 
-            // numericUpDown2day
+            // numericUpDown1day
             // 
-            this.numericUpDown2day.Location = new System.Drawing.Point(166, 162);
-            this.numericUpDown2day.Maximum = new decimal(new int[] {
+            this.numericUpDown1day.Location = new System.Drawing.Point(166, 162);
+            this.numericUpDown1day.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
-            this.numericUpDown2day.Minimum = new decimal(new int[] {
-            1,
+            this.numericUpDown1day.Minimum = new decimal(new int[] {
+            System.DateTime.Now.Day,
             0,
             0,
             0});
-            this.numericUpDown2day.Name = "numericUpDown2day";
-            this.numericUpDown2day.Size = new System.Drawing.Size(43, 22);
-            this.numericUpDown2day.TabIndex = 21;
-            this.numericUpDown2day.Value = new decimal(new int[] {
-            1,
+            this.numericUpDown1day.Name = "numericUpDown1day";
+            this.numericUpDown1day.Size = new System.Drawing.Size(43, 22);
+            this.numericUpDown1day.TabIndex = 21;
+            this.numericUpDown1day.Value = new decimal(new int[] {
+            System.DateTime.Now.Day,
             0,
             0,
             0});
             // 
-            // numericUpDown1years
+            // numericUpDown3years
             // 
-            this.numericUpDown1years.Location = new System.Drawing.Point(294, 162);
-            this.numericUpDown1years.Maximum = new decimal(new int[] {
+            this.numericUpDown3years.Location = new System.Drawing.Point(294, 162);
+            this.numericUpDown3years.Maximum = new decimal(new int[] {
             2100,
             0,
             0,
             0});
-            this.numericUpDown1years.Minimum = new decimal(new int[] {
-            2016,
+            this.numericUpDown3years.Minimum = new decimal(new int[] {
+            System.DateTime.Now.Year,
             0,
             0,
             0});
-            this.numericUpDown1years.Name = "numericUpDown1years";
-            this.numericUpDown1years.Size = new System.Drawing.Size(61, 22);
-            this.numericUpDown1years.TabIndex = 22;
-            this.numericUpDown1years.Value = new decimal(new int[] {
-            2016,
+            this.numericUpDown3years.Name = "numericUpDown3years";
+            this.numericUpDown3years.Size = new System.Drawing.Size(61, 22);
+            this.numericUpDown3years.TabIndex = 22;
+            this.numericUpDown3years.Value = new decimal(new int[] {
+            System.DateTime.Now.Year,
             0,
             0,
             0});
@@ -308,16 +328,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(584, 396);
-            this.Controls.Add(this.numericUpDown1years);
-            this.Controls.Add(this.numericUpDown2day);
-            this.Controls.Add(this.numericUpDown1month);
+            this.Controls.Add(this.numericUpDown3years);
+            this.Controls.Add(this.numericUpDown1day);
+            this.Controls.Add(this.numericUpDown2month);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1StopStations);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.numericUpDown2Minutes);
-            this.Controls.Add(this.numericUpDown2Hours);
-            this.Controls.Add(this.numericUpDown1countPlaces);
+            this.Controls.Add(this.numericUpDown5Minutes);
+            this.Controls.Add(this.numericUpDown4Hours);
+            this.Controls.Add(this.numericUpDown6countPlaces);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1ArrivalIn);
             this.Controls.Add(this.textBox1DepartureFrom);
@@ -334,12 +354,12 @@
             this.MaximizeBox = false;
             this.Name = "AddFlight";
             this.Text = "Добавление рейса";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1countPlaces)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2Hours)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2Minutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1month)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2day)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1years)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6countPlaces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4Hours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5Minutes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2month)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1day)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3years)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,15 +377,15 @@
         private System.Windows.Forms.TextBox textBox1DepartureFrom;
         private System.Windows.Forms.TextBox textBox1ArrivalIn;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown numericUpDown1countPlaces;
-        private System.Windows.Forms.NumericUpDown numericUpDown2Hours;
-        private System.Windows.Forms.NumericUpDown numericUpDown2Minutes;
+        private System.Windows.Forms.NumericUpDown numericUpDown6countPlaces;
+        private System.Windows.Forms.NumericUpDown numericUpDown4Hours;
+        private System.Windows.Forms.NumericUpDown numericUpDown5Minutes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1StopStations;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1month;
-        private System.Windows.Forms.NumericUpDown numericUpDown2day;
-        private System.Windows.Forms.NumericUpDown numericUpDown1years;
+        private System.Windows.Forms.NumericUpDown numericUpDown2month;
+        private System.Windows.Forms.NumericUpDown numericUpDown1day;
+        private System.Windows.Forms.NumericUpDown numericUpDown3years;
     }
 }

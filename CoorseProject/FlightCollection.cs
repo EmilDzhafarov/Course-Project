@@ -22,8 +22,10 @@ namespace CoorseProject
 
     class FlightCollection :List<Flight>
     {
+        private string _path;
         public FlightCollection(string path,string dep,string arrival)
         {
+            _path = path;
             StreamReader flights = new StreamReader(path);
             while (!flights.EndOfStream)
             {
@@ -49,6 +51,7 @@ namespace CoorseProject
 
         public FlightCollection(string path)
         {
+            _path = path;
             using (StreamReader flights = new StreamReader(path))
             {
                 while (!flights.EndOfStream)
@@ -83,6 +86,26 @@ namespace CoorseProject
                         this[j] = t;
                     }
                 }
+            }
+        }
+
+        public void WriteInFile()
+        {
+            using (StreamWriter wr = new StreamWriter(_path, true))
+            {
+                for (int i = 0; i < this.Count; i++)
+                {
+                    wr.WriteLine(this[i].ToString());
+                }
+                wr.Close();
+            }
+        }
+        public void ClearFile()
+        {
+            using (StreamWriter wr = new StreamWriter(_path))
+            {
+                wr.Write("");
+                wr.Close();
             }
         }
     }

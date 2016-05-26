@@ -72,33 +72,44 @@ namespace CoorseProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            List<string> result = new List<string>();
-
-            FlightCollection file = new FlightCollection("Flights.txt");
-            for (int i = 0; i < file.Count; i++)
+            try
             {
-                if (file[i].Number == Convert.ToInt32(num))
+                string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                List<string> result = new List<string>();
+
+                FlightCollection file = new FlightCollection("Flights.txt");
+                for (int i = 0; i < file.Count; i++)
                 {
-                    result.Add("Номер рейса: " +file[i].Number + "");
-                    result.Add("Откуда отправляется: " + file[i].DepartureFrom);
-                    result.Add("Куда направляется: " + file[i].ArrivalIn);
-                    result.Add("Время отправления: " + file[i].Departure.TimeOfDay.ToString("hh':'mm"));
-                    result.Add("Дата отправления: " + file[i].Departure.Date.ToString().Split(' ')[0]);
-                    result.Add("Всего мест: " + file[i].CountPlaces);
-                    result.Add("Свободные места: " + file[i].FreePlaces);
-                    result.Add("Пункты промежуточных посадок: " + Program.GetStations(file[i].StopStation));
-                    result.Add("");
-                    result.Add("Список пассажиров: ");
-                    int k = 0;
-                    while ( k < file[i].ListOfPassengers.Count)
+                    if (file[i].Number == Convert.ToInt32(num))
                     {
-                        result.Add(file[i].ListOfPassengers[k].ToString());
-                        k++;
+                        result.Add("Номер рейса: " + file[i].Number + "");
+                        result.Add("Откуда отправляется: " + file[i].DepartureFrom);
+                        result.Add("Куда направляется: " + file[i].ArrivalIn);
+                        result.Add("Время отправления: " + file[i].Departure.TimeOfDay.ToString("hh':'mm"));
+                        result.Add("Дата отправления: " + file[i].Departure.Date.ToString().Split(' ')[0]);
+                        result.Add("Всего мест: " + file[i].CountPlaces);
+                        result.Add("Свободные места: " + file[i].FreePlaces);
+                        result.Add("Пункты промежуточных посадок: " + Program.GetStations(file[i].StopStation));
+                        result.Add("");
+                        result.Add("Список пассажиров: ");
+                        result.Add("");
+                        int k = 0;
+                        while (k < file[i].ListOfPassengers.Count)
+                        {
+                            result.Add("Имя: " + file[i].ListOfPassengers[k].Name);
+                            result.Add("Фамилия: " + file[i].ListOfPassengers[k].Surname);
+                            result.Add("Отчество: " + file[i].ListOfPassengers[k].MiddleName);
+                            result.Add("----------------------------------------------");
+                            k++;
+                        }
                     }
                 }
+                listBox1.DataSource = result;
             }
-            listBox1.DataSource = result;
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Не выбрано ни одного рейса!","Оповещение");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

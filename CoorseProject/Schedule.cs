@@ -31,7 +31,6 @@ namespace CoorseProject
         private void Schedule_Load(object sender, EventArgs e)
         {
             FirstFunc();
-
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,12 +98,48 @@ namespace CoorseProject
         {
             AddFlight ob = new AddFlight();
             ob.Show();
+            
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             InformationOfFlight ob = new InformationOfFlight();
             ob.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddFlight ob = new AddFlight();
+            ob.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string num = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+                FlightCollection file = new FlightCollection("Flights.txt");
+                for (int i = 0; i < file.Count; i++)
+                {
+                    if (file[i].Number == Convert.ToInt32(num))
+                    {
+                        file.RemoveAt(i);
+                        i--;
+                        if (System.IO.File.Exists(num + "Passangers.txt") == true)
+                        {
+                            System.IO.File.Delete(num + "Passangers.txt");
+                        }
+                    }
+                }
+                file.ClearFile();
+                file.WriteInFile();
+                FirstFunc();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Не выбран ни один рейс!","Оповещение");
+            }
         }
     }
 }
