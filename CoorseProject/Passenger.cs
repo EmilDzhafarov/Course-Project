@@ -38,7 +38,7 @@ namespace CoorseProject
 
         public void WriteInFile(int n)
         {
-            File.AppendAllText(n + "Passangers.txt", "\n" + ToString() + "\r", Encoding.GetEncoding("Windows-1251"));
+            File.AppendAllText(n + "Passangers.txt", "\n" + ToString() + "\r");
         }
     }
 }

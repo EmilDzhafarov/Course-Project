@@ -18,3 +18,4 @@ C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.csproj.GenerateResource.Cache
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.Schedule.resources
 C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.AddFlight.resources
+C:\Users\Эмиль\Desktop\CoorseProject\CoorseProject\obj\Debug\CoorseProject.InformationOfFlight.resources

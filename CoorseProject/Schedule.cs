@@ -100,5 +100,11 @@ namespace CoorseProject
             AddFlight ob = new AddFlight();
             ob.Show();
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformationOfFlight ob = new InformationOfFlight();
+            ob.Show();
+        }
     }
 }
