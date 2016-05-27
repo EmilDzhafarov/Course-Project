@@ -14,7 +14,6 @@ namespace CoorseProject
         public partial class Info : Form
         {
             private int Number;
-            private List<string> rez;
 
             public Info(string str)
             {
@@ -33,7 +32,7 @@ namespace CoorseProject
 
                 FlightCollection file = new FlightCollection("Flights.txt");
                 Flight Current = file.FindByNumber(Number);
-                rez = new List<string>();
+                List<string> rez = new List<string>();
                 rez.Add("Номер: " + Current.Number);
                 rez.Add("Откуда отправляется: " + Current.DepartureFrom);
                 rez.Add("Куда направляется: " + Current.ArrivalIn);

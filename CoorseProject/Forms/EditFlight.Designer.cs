@@ -38,7 +38,7 @@ namespace CoorseProject
             this.numericUpDown1DepHour = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2DepMinutes = new System.Windows.Forms.NumericUpDown();
             this.textBox3stopstat = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1Ok = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -97,11 +97,11 @@ namespace CoorseProject
             // 
             this.dateTimePicker1DepartureDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(137, 178);
-            this.dateTimePicker1DepartureDay.MinDate = System.DateTime.Now;
+            this.dateTimePicker1DepartureDay.MinDate = new System.DateTime(2016, 5, 27, 20, 9, 55, 310);
             this.dateTimePicker1DepartureDay.Name = "dateTimePicker1DepartureDay";
             this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(167, 22);
             this.dateTimePicker1DepartureDay.TabIndex = 7;
-            this.dateTimePicker1DepartureDay.Value = System.DateTime.Now;
+            this.dateTimePicker1DepartureDay.Value = new System.DateTime(2016, 5, 27, 20, 9, 55, 312);
             // 
             // numericUpDown1DepHour
             // 
@@ -134,17 +134,17 @@ namespace CoorseProject
             this.textBox3stopstat.Size = new System.Drawing.Size(169, 20);
             this.textBox3stopstat.TabIndex = 10;
             // 
-            // button1
+            // button1Ok
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(288, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 26);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1Ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1Ok.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1Ok.Location = new System.Drawing.Point(288, 373);
+            this.button1Ok.Name = "button1Ok";
+            this.button1Ok.Size = new System.Drawing.Size(84, 26);
+            this.button1Ok.TabIndex = 11;
+            this.button1Ok.Text = "Сохранить";
+            this.button1Ok.UseVisualStyleBackColor = true;
+            this.button1Ok.Click += new System.EventHandler(this.button1Ok_Click);
             // 
             // button2
             // 
@@ -254,11 +254,11 @@ namespace CoorseProject
             // 
             this.dateTimePicker2arrivalDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateTimePicker2arrivalDay.Location = new System.Drawing.Point(137, 211);
-            this.dateTimePicker2arrivalDay.MinDate = System.DateTime.Now;
+            this.dateTimePicker2arrivalDay.MinDate = new System.DateTime(2016, 5, 27, 20, 9, 55, 440);
             this.dateTimePicker2arrivalDay.Name = "dateTimePicker2arrivalDay";
             this.dateTimePicker2arrivalDay.Size = new System.Drawing.Size(171, 22);
             this.dateTimePicker2arrivalDay.TabIndex = 22;
-            this.dateTimePicker2arrivalDay.Value = System.DateTime.Now;
+            this.dateTimePicker2arrivalDay.Value = new System.DateTime(2016, 5, 27, 20, 9, 55, 441);
             // 
             // label10
             // 
@@ -326,7 +326,7 @@ namespace CoorseProject
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button1Ok);
             this.Controls.Add(this.textBox3stopstat);
             this.Controls.Add(this.numericUpDown2DepMinutes);
             this.Controls.Add(this.numericUpDown1DepHour);
@@ -357,7 +357,7 @@ namespace CoorseProject
         private System.Windows.Forms.NumericUpDown numericUpDown1DepHour;
         private System.Windows.Forms.NumericUpDown numericUpDown2DepMinutes;
         private System.Windows.Forms.TextBox textBox3stopstat;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button1Ok;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

@@ -27,26 +27,26 @@ namespace CoorseProject
             {
                 colum.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-           
+
             try
             {
                 FlightTable1.Rows.Clear();
 
                 FlightCollection list = new FlightCollection("Flights.txt");
                 list.SortingByDays();
-               
+
                 for (int i = list.Count - 1; i >= 0; i--)
                 {
-                    
-                          FlightTable1.Rows.Add(list[i].Number,
-                                                 list[i].FreePlaces,
-                                                 list[i].DepartureFrom,
-                                                 list[i].ArrivalIn,
-                                                 list[i].Departure.TimeOfDay.ToString("hh':'mm"),
-                                                 list[i].Departure.Date.ToString().Split(' ')[0],
-                                                 list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
-                                                 list[i].Arrival.Date.ToString().Split(' ')[0],
-                                                 Program.GetStopStations(list[i].StopStation));
+
+                    FlightTable1.Rows.Add(list[i].Number,
+                                           list[i].FreePlaces,
+                                           list[i].DepartureFrom,
+                                           list[i].ArrivalIn,
+                                           list[i].Departure.TimeOfDay.ToString("hh':'mm"),
+                                           list[i].Departure.Date.ToString().Split(' ')[0],
+                                           list[i].Arrival.TimeOfDay.ToString("hh':'mm"),
+                                           list[i].Arrival.Date.ToString().Split(' ')[0],
+                                           Program.GetStopStations(list[i].StopStation));
                 }
                 if (FlightTable1.Rows.Count == 0)
                 {
@@ -93,26 +93,26 @@ namespace CoorseProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-                string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
-                FlightCollection file = new FlightCollection("Flights.txt");
-                file.RemoveFlightAndFile(num);
-                file.ClearFile();
-                file.WriteInFile();
-                OnLoadFuction();
+            string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
+            FlightCollection file = new FlightCollection("Flights.txt");
+            file.RemoveFlightAndFile(num);
+            file.ClearFile();
+            file.WriteInFile();
+            OnLoadFuction();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-                string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
-                EditFlight ob = new EditFlight(num);
-                ob.Show();
+            string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
+            EditFlight ob = new EditFlight(num);
+            ob.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-                string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
-                Info ob = new Info(num);
-                ob.Show();
+            string num = FlightTable1.CurrentRow.Cells[0].Value.ToString();
+            Info ob = new Info(num);
+            ob.Show();
         }
 
         private void добавитьРейсToolStripMenuItem_Click_1(object sender, EventArgs e)

@@ -50,6 +50,11 @@ namespace CoorseProject
                     MessageBox.Show("Время и дата отправления должны быть больше текущих.", "Оповещение");
                     return;
                 }
+                if (DepartureFrom == "" || ArrivalIn == "")
+                {
+                    MessageBox.Show("", "Оповещение");
+                    return;
+                }
                 if (Current == null)
                 {
                     newFlight = new Flight(Number, DepartureFrom, ArrivalIn, depTime, depDay, arrTime, arrDay, countPlaces, StopStations);
