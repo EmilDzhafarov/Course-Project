@@ -15,11 +15,13 @@ namespace CoorseProject
 
     class FlightCollection : List<Flight>
     {
-        public FlightCollection(string dep = null, string arrival = null)
+        public string Path;
+        public FlightCollection(string _path,string dep = null, string arrival = null)
         {
+            Path = _path;
             this.CheckFile();
             DateTime now = DateTime.Now;
-            using (StreamReader flights = new StreamReader("Flights.txt"))
+            using (StreamReader flights = new StreamReader(Path))
             {
                 while (!flights.EndOfStream)
                 {
@@ -67,7 +69,7 @@ namespace CoorseProject
 
         public void WriteInFile() // Метод, который записывает в файл построчно данные о всех рейсах
         {
-            using (StreamWriter wr = new StreamWriter("Flights.txt", true))
+            using (StreamWriter wr = new StreamWriter(Path, true))
             {
                 foreach(Flight ob in this)
                 {
@@ -78,7 +80,7 @@ namespace CoorseProject
         }
         public void ClearFile() // метод, который очищает файл, который хранит все рейсы.
         {
-            using (StreamWriter wr = new StreamWriter("Flights.txt"))
+            using (StreamWriter wr = new StreamWriter(Path))
             {
                 wr.Write("");
                 wr.Close();
@@ -99,7 +101,7 @@ namespace CoorseProject
         public void AddFlightAndWriteInFile(Flight obj) // Метод, который добавляет рейс и сразу записывает его в файл
         {
             this.Add(obj);
-            using (StreamWriter wr = new StreamWriter("Flights.txt", true))
+            using (StreamWriter wr = new StreamWriter(Path, true))
             {
                 wr.WriteLine(obj.ToString());
                 wr.Close();
@@ -122,14 +124,14 @@ namespace CoorseProject
         }
         public void CheckFile() // Метод для проверки на существование файла со всеми рейсами
         {
-            if (File.Exists("Flights.txt") == false)
+            if (File.Exists(Path) == false)
             {
                 if (Directory.Exists("Passengers"))
                 {
                     Directory.Delete("Passengers", true);
                 }
 
-                FileStream file = new FileStream("Flights.txt",FileMode.Create);
+                FileStream file = new FileStream(Path,FileMode.Create);
                 file.Close();
             }
         }

@@ -22,15 +22,16 @@ namespace CoorseProject
                 InitializeComponent();
             }
 
-            private void Info_Load(object sender, EventArgs e)
+        private void Info_Load(object sender, EventArgs e)
+        {
+            try
             {
-
                 foreach (DataGridViewColumn colum in ListOfPassengers.Columns)
                 {
                     colum.SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
 
-                FlightCollection file = new FlightCollection();
+                FlightCollection file = new FlightCollection("Flights.txt");
                 Flight Current = file.FindByNumber(Number);
                 rez = new List<string>();
                 rez.Add("Номер: " + Current.Number);
@@ -53,6 +54,14 @@ namespace CoorseProject
                                           Current.ListOfPassengers[i].MiddleName);
                 }
             }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Ошибка: время отправления этого рейса стало меньше текущего.", "Оповещение");
+                this.Close();
+                Program.MainForm.OnLoadFuction(); 
+            }
+               
+       }
 
             private void button1_Click(object sender, EventArgs e)
             {

@@ -43,7 +43,7 @@ namespace CoorseProject
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
 
                 Flight newFlight;
-                FlightCollection file = new FlightCollection();
+                FlightCollection file = new FlightCollection("Flights.txt");
                 Flight Current = file.FindByNumber(Convert.ToInt32(Number));
                 if (Convert.ToDateTime(depDay + " " + depTime) <= DateTime.Now)
                 {

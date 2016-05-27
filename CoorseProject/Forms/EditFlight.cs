@@ -24,7 +24,7 @@ namespace CoorseProject
         {
             try
             {
-                FlightCollection File = new FlightCollection();
+                FlightCollection File = new FlightCollection("Flights.txt");
                 Flight Current = File.FindByNumber(Number);
 
                 string depDay = dateTimePicker1DepartureDay.Value.Day.ToString() + "."
@@ -63,17 +63,26 @@ namespace CoorseProject
 
         private void EditFlight_Load(object sender, EventArgs e)
         {
-            FlightCollection File = new FlightCollection();
-            Flight Current = File.FindByNumber(Number);
-            textBox1dep.Text = Current.DepartureFrom;
-            textBox1arr.Text = Current.ArrivalIn;
-            textBox1num.Text = Current.Number.ToString();
-            numericUpDown1DepHour.Value = Current.Departure.TimeOfDay.Hours;
-            numericUpDown2DepMinutes.Value = Current.Departure.TimeOfDay.Minutes;
-            numericUpDown1ArrHours.Value = Current.Arrival.TimeOfDay.Hours;
-            numericUpDown1ArrMinutes.Value = Current.Arrival.TimeOfDay.Minutes;
-            dateTimePicker1DepartureDay.Value = Current.Departure;
-            dateTimePicker2arrivalDay.Value = Current.Arrival;
+            try
+            {
+                FlightCollection File = new FlightCollection("Flights.txt");
+                Flight Current = File.FindByNumber(Number);
+                textBox1dep.Text = Current.DepartureFrom;
+                textBox1arr.Text = Current.ArrivalIn;
+                textBox1num.Text = Current.Number.ToString();
+                numericUpDown1DepHour.Value = Current.Departure.TimeOfDay.Hours;
+                numericUpDown2DepMinutes.Value = Current.Departure.TimeOfDay.Minutes;
+                numericUpDown1ArrHours.Value = Current.Arrival.TimeOfDay.Hours;
+                numericUpDown1ArrMinutes.Value = Current.Arrival.TimeOfDay.Minutes;
+                dateTimePicker1DepartureDay.Value = Current.Departure;
+                dateTimePicker2arrivalDay.Value = Current.Arrival;
+            }
+            catch(NullReferenceException)
+            {
+                MessageBox.Show("Ошибка: время отправления этого рейса стало меньше текущего.","Оповещение");
+                this.Close();
+                Program.MainForm.OnLoadFuction();
+            }
         }
     }
 }

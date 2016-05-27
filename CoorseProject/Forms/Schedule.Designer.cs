@@ -38,7 +38,7 @@
             this.добавитьРейсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FlightTable1 = new System.Windows.Forms.DataGridView();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FreePlaces = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartureFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button5InfomOfFlight = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightTable1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,16 +107,16 @@
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // FlightTable1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.FlightTable1.AllowUserToAddRows = false;
+            this.FlightTable1.AllowUserToDeleteRows = false;
+            this.FlightTable1.AllowUserToResizeColumns = false;
+            this.FlightTable1.AllowUserToResizeRows = false;
+            this.FlightTable1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.FlightTable1.BackgroundColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.PaleTurquoise;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -124,10 +124,10 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FlightTable1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.FlightTable1.ColumnHeadersHeight = 40;
+            this.FlightTable1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.FlightTable1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number,
             this.FreePlaces,
             this.DepartureFrom,
@@ -144,11 +144,11 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 87);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.FlightTable1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FlightTable1.Location = new System.Drawing.Point(8, 87);
+            this.FlightTable1.MultiSelect = false;
+            this.FlightTable1.Name = "FlightTable1";
+            this.FlightTable1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -156,12 +156,12 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 246);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.FlightTable1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.FlightTable1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.FlightTable1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.FlightTable1.Size = new System.Drawing.Size(764, 246);
+            this.FlightTable1.TabIndex = 12;
+            this.FlightTable1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Number
             // 
@@ -319,7 +319,7 @@
             this.Controls.Add(this.button5InfomOfFlight);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.FlightTable1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 450);
@@ -328,7 +328,7 @@
             this.Load += new System.EventHandler(this.Schedule_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FlightTable1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +341,7 @@
         private System.Windows.Forms.ToolStripMenuItem бронированиеБилетовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView FlightTable1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3DeleteFlight;
         private System.Windows.Forms.Button button4AddFlight;

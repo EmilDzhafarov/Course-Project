@@ -38,7 +38,7 @@ namespace CoorseProject
                 decimal count = numericUpDown1Count.Value;
 
                 Passenger user = new Passenger(Name, Surname, Middlename);
-                FlightCollection arr = new FlightCollection();
+                FlightCollection arr = new FlightCollection("Flights.txt");
 
                 Flight Current = arr.FindByNumber(Convert.ToInt32(num));
                 Current.AddPassenger(user, count);
@@ -66,7 +66,7 @@ namespace CoorseProject
                 string arrival = Program.RemoveSpaces(textBox5arrivalIn.Text);
 
                 DateTime now = DateTime.Now;
-                FlightCollection list = new FlightCollection(dep, arrival);
+                FlightCollection list = new FlightCollection("Flights.txt",dep, arrival);
 
                 list.SortingByDays();
 
