@@ -125,5 +125,13 @@ namespace CoorseProject
         {
 
         }
+
+        private void удалитьСтарыеРейсыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FlightCollection file = new FlightCollection("Flights.txt");
+            file.ClearFile();
+            file.WriteInFile();
+            MessageBox.Show("Старые рейсы были успешно удалены из базы данных!", "Оповещение");
+        }
     }
 }

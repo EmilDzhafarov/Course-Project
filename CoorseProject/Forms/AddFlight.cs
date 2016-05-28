@@ -42,9 +42,6 @@ namespace CoorseProject
                 string ArrivalIn = Program.RemoveSpaces(textBox1ArrivalIn.Text);
                 int countPlaces = Convert.ToInt32(numericUpDown6countPlaces.Value);
 
-                Flight newFlight;
-                FlightCollection file = new FlightCollection("Flights.txt");
-                Flight Current = file.FindByNumber(Convert.ToInt32(Number));
                 if (Convert.ToDateTime(depDay + " " + depTime) <= DateTime.Now)
                 {
                     MessageBox.Show("Время и дата отправления должны быть больше текущих.", "Оповещение");
@@ -52,9 +49,16 @@ namespace CoorseProject
                 }
                 if (DepartureFrom == "" || ArrivalIn == "")
                 {
-                    MessageBox.Show("", "Оповещение");
+                    MessageBox.Show("Укажите маршрут", "Оповещение");
                     return;
                 }
+
+
+
+                Flight newFlight;
+                FlightCollection file = new FlightCollection("Flights.txt");
+                Flight Current = file.FindByNumber(Convert.ToInt32(Number));
+                
                 if (Current == null)
                 {
                     newFlight = new Flight(Number, DepartureFrom, ArrivalIn, depTime, depDay, arrTime, arrDay, countPlaces, StopStations);
@@ -74,7 +78,7 @@ namespace CoorseProject
             }
             catch(ArithmeticException)
             {
-                MessageBox.Show("Номер рейса слишком длинный.", "Оповещение");
+                MessageBox.Show("Номер не может состоять более, чем из 9 цифр", "Оповещение");
             }
             catch (Exception my)
             {
