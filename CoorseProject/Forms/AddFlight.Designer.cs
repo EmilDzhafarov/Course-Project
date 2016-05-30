@@ -44,7 +44,7 @@
             this.numericUpDown5DepMinutes = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1StopStations = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1Ok = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dateTimePicker1DepartureDay = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -237,18 +237,18 @@
             this.textBox1StopStations.Size = new System.Drawing.Size(144, 22);
             this.textBox1StopStations.TabIndex = 17;
             // 
-            // button1
+            // button1Ok
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(262, 447);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 28);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Добавить!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1Ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1Ok.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1Ok.Location = new System.Drawing.Point(262, 447);
+            this.button1Ok.Margin = new System.Windows.Forms.Padding(2);
+            this.button1Ok.Name = "button1Ok";
+            this.button1Ok.Size = new System.Drawing.Size(81, 28);
+            this.button1Ok.TabIndex = 18;
+            this.button1Ok.Text = "Добавить!";
+            this.button1Ok.UseVisualStyleBackColor = true;
+            this.button1Ok.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -267,11 +267,11 @@
             // 
             this.dateTimePicker1DepartureDay.Location = new System.Drawing.Point(141, 183);
             this.dateTimePicker1DepartureDay.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1DepartureDay.MinDate = System.DateTime.Now;
+            this.dateTimePicker1DepartureDay.MinDate = new System.DateTime(2016, 5, 28, 17, 48, 17, 44);
             this.dateTimePicker1DepartureDay.Name = "dateTimePicker1DepartureDay";
             this.dateTimePicker1DepartureDay.Size = new System.Drawing.Size(167, 22);
             this.dateTimePicker1DepartureDay.TabIndex = 23;
-            this.dateTimePicker1DepartureDay.Value = System.DateTime.Now;
+            this.dateTimePicker1DepartureDay.Value = new System.DateTime(2016, 5, 28, 17, 48, 17, 46);
             // 
             // label9
             // 
@@ -301,11 +301,11 @@
             // 
             this.dateTimePicker2ArrivalDay.Location = new System.Drawing.Point(141, 267);
             this.dateTimePicker2ArrivalDay.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker2ArrivalDay.MinDate = System.DateTime.Now;
+            this.dateTimePicker2ArrivalDay.MinDate = new System.DateTime(2016, 5, 28, 17, 48, 17, 71);
             this.dateTimePicker2ArrivalDay.Name = "dateTimePicker2ArrivalDay";
             this.dateTimePicker2ArrivalDay.Size = new System.Drawing.Size(163, 22);
             this.dateTimePicker2ArrivalDay.TabIndex = 26;
-            this.dateTimePicker2ArrivalDay.Value = System.DateTime.Now;
+            this.dateTimePicker2ArrivalDay.Value = new System.DateTime(2016, 5, 28, 17, 48, 17, 73);
             // 
             // label11
             // 
@@ -371,7 +371,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dateTimePicker1DepartureDay);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button1Ok);
             this.Controls.Add(this.textBox1StopStations);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numericUpDown5DepMinutes);
@@ -421,7 +421,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown5DepMinutes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox1StopStations;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button1Ok;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1DepartureDay;
         private System.Windows.Forms.Label label9;

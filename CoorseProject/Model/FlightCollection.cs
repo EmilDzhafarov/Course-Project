@@ -114,12 +114,12 @@ namespace CoorseProject
 
             if (Current != null)
             {
+                if (File.Exists("Passengers\\" + Current.Number + "Passengers.txt") == true)
+                {
+                    File.Delete("Passengers\\" + Current.Number + "Passengers.txt");
+                }
                 this.Remove(Current);
 
-                if (File.Exists("Passengers\\" + num + "Passengers.txt") == true)
-                {
-                    File.Delete("Passengers\\" + num + "Passengers.txt");
-                }
             }
         }
         public void CheckFile() // Метод для проверки на существование файла со всеми рейсами

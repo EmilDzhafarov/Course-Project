@@ -53,7 +53,6 @@
             this.button2EditFlight = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button5InfomOfFlight = new System.Windows.Forms.Button();
-            this.удалитьСтарыеРейсыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FlightTable1)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +74,6 @@
             this.расписаниеРейсовToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.бронированиеБилетовToolStripMenuItem,
             this.добавитьРейсToolStripMenuItem,
-            this.удалитьСтарыеРейсыToolStripMenuItem,
             this.выходToolStripMenuItem1});
             this.расписаниеРейсовToolStripMenuItem.Name = "расписаниеРейсовToolStripMenuItem";
             this.расписаниеРейсовToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
@@ -310,13 +308,6 @@
             this.button5InfomOfFlight.UseVisualStyleBackColor = true;
             this.button5InfomOfFlight.Click += new System.EventHandler(this.button5_Click);
             // 
-            // удалитьСтарыеРейсыToolStripMenuItem
-            // 
-            this.удалитьСтарыеРейсыToolStripMenuItem.Name = "удалитьСтарыеРейсыToolStripMenuItem";
-            this.удалитьСтарыеРейсыToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.удалитьСтарыеРейсыToolStripMenuItem.Text = "Удалить старые рейсы";
-            this.удалитьСтарыеРейсыToolStripMenuItem.Click += new System.EventHandler(this.удалитьСтарыеРейсыToolStripMenuItem_Click);
-            // 
             // Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,6 +358,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn StopStations;
-        private System.Windows.Forms.ToolStripMenuItem удалитьСтарыеРейсыToolStripMenuItem;
     }
 }
